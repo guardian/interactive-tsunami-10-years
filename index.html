@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- CSS_START -->
+		<!--  <link rel="stylesheet" href="css/local-fonts.css"/> -->
+		<link rel="stylesheet" href="http://pasteup.guim.co.uk/0.0.5/css/fonts.pasteup.min.css"/>
+		
+
+<style>
+/* reset */
+
+body {
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 10px;
+	color: #333;
+	background-color: #FFF;
+}
+
+p{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 200;
+	font-size: 1.8em;
+	line-height: 1.5em;
+	color: #767676;
+}
+
+h2{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 400;
+	font-size: 3em;
+	line-height: 1.2em;
+	color: #333;
+}
+
+h3{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 400;
+	font-size: 2.4em;
+	line-height: 1.05em;
+	color: #333;
+}
+
+h4{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 400;
+	font-size: 2.4em;
+	text-align:center;
+	line-height: 1.5em;
+	color: #767676;
+}
+
+h5{
+	display: inline !important;
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 500;
+	font-size: 2.2em;
+	text-align:left;
+	line-height: 1.2em;
+	padding:0 0 12px 0;
+	margin: 0;
+	color: #333;
+}
+
+h6{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 400;
+	font-size: 1.8em;
+	text-align:left;
+	line-height: 1.5em;
+	padding:0;
+	margin: 0;
+	color: #333;
+}
+
+#top-bar{
+	position:relative;
+	top:0px;
+	left:0px;
+	height:4px;
+	width:70px;
+	background-color:#4bc6df;
+}
+
+
+#drop-down-holder{
+	position:relative;
+
+	width:100%;
+	height:auto;
+	padding:36px 0 0 0;
+	
+}
+
+
+#top-header{
+	position:relative;
+	float:left;
+	clear:right;
+	left:0px;
+	top:6px;
+	width:100%;
+	height:auto;
+	font-family:"Guardian Egyptian Headline", Georgia, serif;
+	font-size:2.2em;
+	line-height: 1.2em;
+	font-weight:700;
+	text-align:left;
+	color: #005689;
+	padding-bottom:12px;
+}
+
+#interactive-container{
+	width: 100%;
+	height: auto;
+}
+
+.drop-down-text-title{
+	postion: relative;
+	left: 0px;
+	top:24px;
+	float: left;
+    font-family: "Guardian Egyptian Headline",Georgia,serif;
+    font-size: 1.8em;
+    font-weight: 500;
+    color:#005689;
+    padding:0 12px 0 0;
+}
+
+#graphic-holder{
+	position: relative;
+	left:3px;
+	top:3px;
+	width: 100%;
+	float:left;
+	clear:right;
+	border-top: 1px solid #dcdcdc;
+}
+
+.country {
+    fill: #dbdbd8;
+    stroke: white;
+    stroke-width: 0.25px;
+}
+
+
+.country-selected {
+    fill: #4bc6df;
+    stroke: white;
+    stroke-width: 0.25px;
+}
+
+.large-number{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 200;
+	font-size: 8.4em;
+	float: left;
+	clear: right;
+	text-align: left;
+	width: 100%;
+	padding: 3px 10px 12px 10px;
+	margin: 0;
+	color: #bdbdbd;
+}
+
+
+.number-caption{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 400;
+	font-size: 2.2em;
+	line-height: 1.2em;
+	font-weight:200;
+	text-align:left;
+	color:#767676;
+	padding: 3px 10px 24px 10px;
+	clear: both;
+	/*border-bottom: 1px dotted #005689;*/
+}
+
+.small-col-header{
+	clear: right;
+    color: #005689;
+    float:left;
+	clear:right;
+	text-align: left;
+	position: relative;
+	left: 0;
+	padding-top:3px;
+    font-family: "Guardian Egyptian Headline",Georgia,serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    height: auto;
+    
+    line-height: 1.2em;
+    
+
+}
+
+/* Start responsive */
+
+@media only screen and (max-width:599px){
+
+.key-item-title {
+	width:20px;
+}
+
+.notes-header{
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-weight: 600;
+	
+	
+}
+
+#heatmap-key{
+	background-color: rgba(255, 255, 255, 1);
+    clear: right;
+    display: inline;
+    float: left;
+    left: 0;
+    padding: 36px 0 3px;
+    position: absolute;
+    top: 228px;
+    width: 320px;
+}
+
+
+.key-item-title, .key-item-title-short, .key-item, .key-item-short{
+	width:100px;
+	height:auto;
+	float:left;
+	clear:right;
+	padding-left: 12px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-weight: 600;
+	font-size:1.2em;
+	line-height: 1.5em;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.key-item{
+	width:auto;
+	font-weight: 400;
+	
+}
+
+.key-item-short{
+	width:auto;
+	font-weight: 400;
+}
+
+.key-item-title {
+	width:auto;
+	float:left;
+	clear:right;
+	padding-left:3px;
+
+}
+	
+#button-holder{
+	position: absolute;
+	left:3px;
+	top:48px;
+
+	width: 100%;
+	float:right;
+	clear:left;
+  	text-align: center;
+  	padding-top:23px;
+	height:auto;
+}
+
+
+.buttonnav {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 12px 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	overflow:hidden;
+	color: #FFFFFF;
+	background-color: #bdbdbd !important;
+	cursor:pointer;
+}
+
+.buttonnav-selected {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 12px 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+
+.copy-holder-top {
+     background-color: #fff;
+    clear: right;
+    color: #005689;
+    float: left;
+    font-family: "Guardian Agate Sans",Georgia,serif;
+    font-size: 1.5em;
+    font-weight: 200;
+    height: 180px;
+    left: 0;
+    line-height: 1.3em;
+    margin: 0 0 12px;
+    padding: 3px 0 0 3px;
+    position: absolute;
+    top: 836px;
+    width: 310px;
+}
+
+.copy-holder-top b{
+	font-weight:500;
+	}
+
+
+.large-number-top{
+	border-top: 1px solid #dcdcdc;
+	color: #005689;
+	float: left;
+	font-family: "Guardian Egyptian Headline",Georgia,serif;
+	font-size: 4.5em;
+	font-weight: 200;
+	padding: 3px 10px 0 0;
+	position: absolute;
+	text-align: left;
+	top: 120px;
+	width: 98%;
+}
+
+
+#graphic-holder{
+	position: relative;
+	left:3px;
+	top:3px;
+	width: 100%;
+	height:320px;
+	float:left;
+	clear:right;
+	display:inline;
+}
+
+#graphHolder{
+	border-top: 1px solid #dcdcdc;
+    position: absolute;
+    top: 288px;
+    width: 100%;
+}
+
+.factbox-holder-col-left{
+	position: relative;
+	width: 300px;
+	height: 24px;
+	float: left;
+	clear: right;
+}
+
+.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+	position: relative;
+	width:320px;
+	float:left;
+	padding-left: 0px;
+	border-bottom: 1px solid #dcdcdc;
+	height:auto;
+
+}
+
+#factbox-holder{
+	position: relative;
+	left: 0px;
+	float: left;
+	clear: right;
+	margin: 12px 0 12px 6px;
+	max-width: 1260px;
+	min-width: 300px;
+	width: 100%;
+	background-color: #FFF;
+}
+
+
+.timeline{
+	background-color: #fff;
+	clear: right;
+	float: left;
+	max-width: 1260px;
+	min-width: 320px;
+	padding: 0 0 12px;
+	position: absolute;
+	width: 90%;
+	top: 180px;
+	left: -30px;
+	margin-left: 0;
+
+}
+
+#drop-down-holder{
+	position:relative;
+	width:90%;
+	display:inline;
+}
+
+.number-caption{
+	font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 1.5em;
+	line-height: 1.2em;
+	font-weight:200;
+	text-align:left;
+	color:#767676;
+	padding: 1px 10px 12px 0;
+	clear: both;
+	/*border-bottom: 1px dotted #005689;*/
+}
+
+
+.large-number{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight: 200;
+	font-size: 3em;
+	float: left;
+	clear: right;
+	text-align: left;
+	width: 100%;
+	padding: 3px 10px 0 0;
+	margin: 0;
+	color: #bdbdbd;
+}
+
+
+
+.small-col-header{
+	clear: right;
+    color: #005689;
+    float:left;
+	clear:right;
+	text-align: left;
+	position: relative;
+	left: 0;
+	padding-top:3px;
+    font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
+	font-weight: 600;
+	font-size: 1.5em;
+	line-height: 1.2em;
+    height: auto;
+
+}
+
+
+
+}
+
+
+
+@media only screen and (min-width : 600px) and (max-width : 1199px){
+
+#heatmap-key{
+	background-color: rgba(255, 255, 255, 1);
+    clear: right;
+    float: left;
+    left: 0;
+    padding: 24px 0 3px 6px;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+	
+#button-holder{
+	position: relative;
+	left:3px;
+	top:3px;
+	width: 100%;
+	float:left;
+	clear:right;
+  	text-align: center;
+  	padding-top:23px;
+	height:auto;
+}
+
+
+.buttonnav {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 12px 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	overflow:hidden;
+	color: #FFFFFF;
+	background-color: #bdbdbd !important;
+	cursor:pointer;
+}
+
+.buttonnav-selected {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 12px 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+
+.copy-holder-top {
+    clear: right;
+    color: #005689;
+    float: left;
+    font-family: "Guardian Egyptian Headline",Georgia,serif;
+    font-size: 2.2em;
+    font-weight: 200;
+    left: 0;
+    line-height: 1.3em;
+    margin: 0 0 12px 0px;
+   	border-left: 1px solid #005689;
+    padding: 3px 0 0 10px;
+    position: relative;
+    
+    width: 450px;
+    height: 192px;
+
+    background-color: #FFF;
+}
+
+
+.large-number-top{
+	font-family: "Guardian Egyptian Headline", Georgia, serif;
+	font-weight:200;
+	font-size: 10em;
+	float:left;
+
+	text-align: left;
+	
+	padding: 0px 10px 0px 0px;
+	width: 225px;
+	
+	
+	color: #005689;
+}
+
+#graphic-holder{
+	position: relative;
+	left:3px;
+	top:3px;
+	width: 100%;
+	float:left;
+	clear:right;
+	border-top: 1px solid #dcdcdc;
+}
+
+.factbox-holder-col-left{
+	position: relative;
+	width:140px;
+	height:auto;
+	float:left;
+	clear:right;
+	padding-right: 10px;
+	margin-bottom:100%;
+
+}
+
+
+
+.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+	position: relative;
+	width:320px;
+	float:left;
+	padding-left: 10px;
+	border-left: 1px solid #dcdcdc;
+	height:240px;
+}
+
+
+#factbox-holder{
+	position: relative;
+	top:0px;
+	left:0px;
+	float:left;
+	clear:right;
+	margin:0 0 12px 6px;
+	max-width: 1260px;
+	min-width:320px;
+	width:100%;
+
+	background-color: #FFF;
+}
+
+.timeline{
+	
+	background-color: #fff;
+    clear: right;
+    float: left;
+    max-width: 1260px;
+    min-width: 320px;
+    padding: 0 0 12px;
+    position: relative;
+    width: 100%;
+    top:0px;
+    left: 0px;
+
+}
+
+#drop-down-holder{
+	position:relative;
+	width:90%;
+	display:inline;
+}
+
+}
+
+
+
+
+@media only screen and (min-width : 1200px) {
+
+#heatmap-key{
+	/*background-color: rgba(255, 255, 255, 1);*/
+    clear: right;
+    float: left;
+    left: 0px;
+    padding: 0 0 3px 0px;
+    position: absolute;
+    top: 144px;
+    width: 40%;
+}
+
+#button-holder{
+	position: relative;
+	right:3px;
+	width: 100%;
+	float:left;
+	clear:right;
+  	text-align: center;
+	height:48px;	
+}
+
+.buttonnav {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 0 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	overflow:hidden;
+	color: #FFFFFF;
+	background-color: #bdbdbd !important;
+	cursor:pointer;
+}
+
+.buttonnav-selected {
+    float: right;
+    width:auto;
+    min-width:80px;
+	height:25px;
+	border-radius: 16px;
+	text-align: center;
+	margin: 0 12px 0 0;
+	padding: 7px 9px 0 9px;
+	font-family: "Guardian Agate Sans", Arial, sans-serif;
+	font-size: 15px;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+
+.copy-holder-top {
+    clear: right;
+	color: #005689;
+	float: left;
+	font-family: "Guardian Egyptian Headline",Georgia,serif;
+	font-size: 2.2em;
+	font-weight: 200;
+	line-height: 1.3em;
+	margin: 0px 0 12px 10px;
+	max-width: 940px;
+	min-width: 320px;
+	padding: 3px 0 0 0;
+	position: relative;
+	left: 0px;
+	height: 96px;
+	width: 100%;
+}
+
+.large-number-top {
+    border-right: 1px solid #005689;
+    color: #005689;
+    float: left;
+    font-family: "Guardian Egyptian Headline",Georgia,serif;
+    font-size: 10em;
+    font-weight: 200;
+  	padding: 0 10px 0 0;
+    text-align: left;
+    width: 225px;
+}
+
+#graphic-holder {
+    
+    clear: right;
+    float: left;
+    left: 3px;
+    position: relative;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid #dcdcdc;
+}
+
+.factbox-holder-col-left{
+	position: relative;
+	width:220px;
+	height:300px;
+	float:left;
+	clear:right;
+	padding-right: 10px;
+}
+
+
+
+.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+	position: relative;
+	width:320px;
+	float:left;
+	clear:right;
+	border-left: 1px solid #dcdcdc;
+	height:240px;
+}
+
+
+#factbox-holder{
+	position: relative;
+	top:0px;
+	left:0px;
+	float:left;
+	clear:right;
+	margin:0 0 12px 6px;
+	max-width: 1260px;
+	min-width:320px;
+	width:100%;
+
+	background-color: #FFF;
+}
+
+.timeline{
+	
+	background-color: #fff;
+    clear: right;
+    float: left;
+    max-width: 1260px;
+    min-width: 320px;
+    padding: 0 0 12px;
+    position: relative;
+    width: 100%;
+    top:0px;
+    left: 0px;
+    margin-left:-15px;
+
+#drop-down-holder{
+	position:relative;
+	top:24px;
+	width:90%;
+	padding:24px 0 0 0;
+	display:inline;
+}
+
+}
+}
+
+</style>
+
+		<!-- CSS_END -->
+		<!-- JS_START -->
+		<script src='js/libs/jquery-2.1.1.js' type="text/javascript"></script>
+		<script src='js/libs/TweenMax.min.js' type="text/javascript"></script>
+		<script src="js/libs/touchmouse.js"></script>
+		<script src="js/libs/d3/d3.js" charset="utf-8"></script>
+		<script src="js/libs/underscore/underscore-min.js" charset="utf-8"></script>
+
+		<script src="js/libs/d3/topojson.v0.min.js"></script>
+		<script src="js/libs/d3/d3.geom.js"></script>
+		<script src="js/libs/d3/d3.layout.js"></script>
+		<script src= "js/libs/d3/d3.geo.projection.v0.min.js"></script>
+		
+		<script src="js/libs/datejs/date-en-GB.js"></script>
+		
+		<!--  USE THIS REMOTELY -->
+		<!--<script src="//interactive.guim.co.uk/libs/iframe-messenger/iframeMessenger.js" type="text/javascript"></script>-->
+		<!--  USE THIS LOCALLY -->
+		<script src="http://interactive.guim.co.uk/libs/iframe-messenger/iframeMessenger.js" type="text/javascript"></script>
+		
+		<title>Interactive</title>
+
+	</head>
+	<body>
+
+	<div id='interactive-container'>
+		<div id="topArea">	
+			<div id="top-bar">
+				
+			</div>
+				<div id="top-header">Indian Ocean Tsunami 10 years on</div>
+					<div id="drop-down-holder">
+						<div class="drop-down-text-title">Select a country</div>
+						<select id="drop-down-menu">
+						  
+						</select>
+					</div>
+			</div>
+
+
+			<div id="graphic-holder"> 
+
+			</div>
+
+
+			<div id="factbox-holder">
+					<div id="col1" class="factbox-holder-col-left">
+						<div class="small-col-header"  id="countryTitle"></div>
+					</div>
+
+					<div id="col2" class="factbox-holder-col-center-left">
+						
+						<div id="col-2-number" class="large-number"> </div>
+						<div class="number-caption" id="col-2-caption"> </div>
+					</div>
+
+
+					<div id="col3" class="factbox-holder-col-center-right">
+						<div id="col-3-number" class="large-number"> </div>
+						<div class="number-caption"  id="col-3-caption"> </div>
+						
+					</div>
+
+
+					<div id="col4" class="factbox-holder-col-right">
+						<div id="col-4-number" class="large-number"> </div>
+						<div class="number-caption"  id="col-4-caption"> </div>
+						
+					</div>
+			</div>
+
+
+	</div>
+
+	
+
+<script>
+
+//IE fixes and iframe init
+var makeUnselectable = function( $target ) {
+    $target
+        .addClass( 'unselectable' ) // All these attributes are inheritable
+        .attr( 'unselectable', 'on' ) // For IE9 - This property is not inherited, needs to be placed onto everything
+        .attr( 'draggable', 'false' ) // For moz and webkit, although Firefox 16 ignores this when -moz-user-select: none; is set, it's like these properties are mutually exclusive, seems to be a bug.
+        .on( 'dragstart', function() { return false; } );  // Needed since Firefox 16 seems to ingore the 'draggable' attribute we just applied above when '-moz-user-select: none' is applied to the CSS 
+
+    $target // Apply non-inheritable properties to the child elements
+        .find( '*' )
+        .attr( 'draggable', 'false' )
+        .attr( 'unselectable', 'on' ); 
+};
+
+var links = document.querySelectorAll('a');
+
+for(var i = 0; i < links.length; i++) {
+    		links[i].addEventListener('click', function(event) {
+        		event.preventDefault();
+        		iframeMessenger.navigate(this.href);
+    		}, false);
+}
+iframeMessenger.enableAutoResize();
+//
+
+
+
+
+//global vars
+var dataset, data, projection;	
+
+// from http://www.scienzagiovane.unibo.it/English/tsunami/5-tsunami-2004.html
+var tsunamiLat = 3.19; var tsunamiLon = 96;
+
+
+//var mapJSON = JSON.parse(mapdata);
+
+
+$(function() {
+	$(document).ready(function() {		
+		initData();
+	})	
+
+	if(!Array.indexOf) {// IE fix
+		Array.prototype.indexOf = function(obj) {
+			for(var i = 0; i < this.length; i++) {
+				if(this[i] === obj) {
+					return i;
+				}
+			}
+			return -1;
+		}
+	}
+});
+
+
+
+
+
+	
+
+
+function initData() {
+
+	"use strict";
+
+	var key = "1KnOjqvRKyLMF73Uky58tQFcg4zOVk2YrRzaZjx1no3o";
+
+	//var key = window.location.search.slice(1);
+				
+				var url = "http://interactive.guim.co.uk/spreadsheetdata/" + key + ".json";
+
+				console.log(url);
+
+				$.getJSON(url, handleResponse);
+
+};
+
+
+function handleResponse(data) {
+	dataset = data.sheets.countryData;
+	buildView()
+}
+
+
+function buildView(){
+	populateDropDown();
+	addMap();
+}
+
+
+
+
+function addListeners(){
+	$(".country").click( function (e){
+        getCountryData(e);
+    });
+
+    $( "select" ).change(function (e) {
+        upDateFromSelectFilters(e);
+    })
+}
+
+
+function upDateFromSelectFilters(e){
+
+    var newSort =  e.currentTarget.value;
+	d3.select("#IND").classed("country-selected", false);
+ 	var newClip = "#"+newSort;
+
+ 	var newClip = d3.select(newClip)
+   	d3.select(".country-selected").classed("country-selected", false);
+   	newClip.classed("country-selected", true);
+
+  	_.each(dataset, function(item){
+
+  		if (item.countryiso == newSort){
+  			setCountryData(item);
+  		}
+
+  	})
+
+ }
+
+function populateDropDown(){
+	var firstEntry = true;
+	
+	var htmlStr ="";
+
+	_.each(dataset, function(item){
+		var formatCountry = removeSpaces(item.countryiso);
+				if (firstEntry){
+		 			htmlStr += "<option value='"+formatCountry+"' id='select_"+formatCountry+"'selected>"+item.country+"</option>";
+				}
+				if(!firstEntry){
+					htmlStr += "<option value='"+formatCountry+"' id='select_"+formatCountry+"'>"+item.country+"</option>";
+				}
+
+				firstEntry = false;
+		})
+
+	$("#drop-down-menu").html(htmlStr);
+
+}
+
+//map
+
+function addMap(){
+
+
+
+    var width = $("#graphic-holder").width();
+    var height;
+    var scalefactor = 450 //width/2/Math.PI; //width / 13;
+    var topo;
+
+    //var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
+
+    //console.log(subunits)
+    height = width * 0.6
+    // if (width > 1200){
+    //     height = width * 0.6
+    // }
+
+    // if (width > 700 && width < 1200){
+    //     height = width * 0.45
+    // }
+
+
+    if (width < 700){
+        scalefactor = 400 
+     }
+
+	$("#graphic-holder").css("height", height);
+
+	    projection = d3.geo.robinson()
+	            // .center([-250, 80 ]) // -20, 20
+	            // .scale(scalefactor)
+	            // .translate([0,40]);
+				.center([tsunamiLon, tsunamiLat])
+				.scale(scalefactor);
+	            //var center = [0, 0];
+            
+            // Center and zoom
+            //if (this.isZoomed) {
+                
+            //}
+
+	    svg = d3.select("#graphic-holder").append("svg")
+	            .attr("width", width)
+	            .attr("height", height)
+	            .attr("id", "svg_worldmap");
+
+	        var path = d3.geo.path().projection(projection);
+
+	     
+
+	        var g = svg.append("g");
+	        var countRef = 0;
+
+	        // load and display the World
+	        d3.json("world-110m.json", function(error, topology) {
+	            g.selectAll("path")
+				.data(topojson.object(topology, topology.objects.countries).geometries)
+				.enter()
+				.append("path")
+	            .attr("class",  "country")
+	            
+	            //.attr("centroid", function (d) { var newLocation = "{latitude:"+d.properties.latitude+",longitude:"+d.properties.longitude+"}"; return newLocation; })
+	            .attr("d", path)
+	            .attr("id", function (d) { return d.properties.iso_a3; })
+	            .on("click", function () {
+		            d3.select(".country-selected").classed("country-selected", false);
+		            d3.select(this).classed("country-selected", true);
+		            console.log(this.id);
+		        });
+
+				g.append('svg:circle')
+
+
+			
+
+	        .attr('cx', function () { return projection([tsunamiLon, tsunamiLat])[0]; })
+	        .attr('cy', function () { return projection([tsunamiLon, tsunamiLat])[1]; })
+	        .attr('r', 30)
+	        .attr("fill", "#FF9900")
+	        .attr("fill-opacity","0.8")
+	        .attr("stroke", "#000")
+	        .attr("stroke-opacity","0.6")
+            .attr("stroke-width", "3px");
+
+	        addListeners();
+	        
+
+	           	//topojson.object(topology, topology.objects.countries).geometries)
+
+	        });
+
+
+ 
+    
+    // $(".key-item-color-four").css("background-color", exportColor);  
+
+}
+
+
+// data into view
+
+function setCountryData(obj){
+
+// boats ""
+// casualties 10750
+// country "India"
+// countryiso "IND"
+// fundssecuredusd "$2.18 bn"
+// houses""
+// madelandafterinitialquakeinhours""
+// needforrecoveryusd"$2.1 bn"
+// rowNumber3
+// valueofdamages""
+// waveheightlocation""
+// waveheightm"5-10"
+// wavespeedms""
+
+	console.log(obj);
+
+    $('#countryTitle').html(obj.country);
+    
+    $('#col-2-caption').html("funds secured");
+    $('#col-2-number').html(addCommas(obj.fundssecuredusd))
+    $('#col-3-caption').html("wave height");
+    $('#col-3-number').html(obj.waveheightm+"m")
+    $('#col-4-caption').html("Casualties");
+    $('#col-4-number').html(addCommas(obj.casualties))
+         
+}
+
+
+
+// utils
+
+function addCommas(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+function removeSpaces(strIn){
+	var strOut = strIn.replace(/\s+/g, '_')
+
+	return strOut;
+}
+
+function scrollPage(d) {
+	var scrollTo = d.pageYOffset + d.iframeTop + currentPosition;
+	iframeMessenger.scrollTo(0, scrollTo);
+}
+
+
+function forceIframeResize() {
+	var h = $("#wrapper").innerHeight();
+	iframeMessenger.resize(h);
+}
+
+
+</script>
+
+
+	</body>
+</html>
