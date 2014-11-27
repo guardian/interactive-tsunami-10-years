@@ -129,7 +129,7 @@ h6{
     padding:0 12px 0 0;
 }
 
-#graphic-holder{
+#mapView{
 	position: relative;
 	left:3px;
 	top:3px;
@@ -344,7 +344,7 @@ h6{
 }
 
 
-#graphic-holder{
+#mapView{
 	position: relative;
 	left:3px;
 	top:3px;
@@ -561,7 +561,7 @@ h6{
 	color: #005689;
 }
 
-#graphic-holder{
+#mapView{
 	position: relative;
 	left:3px;
 	top:3px;
@@ -720,7 +720,7 @@ h6{
     width: 225px;
 }
 
-#graphic-holder {
+#mapView {
     
     clear: right;
     float: left;
@@ -833,7 +833,7 @@ h6{
 			</div>
 
 
-			<div id="graphic-holder"> 
+			<div id="mapView"> 
 
 			</div>
 
@@ -900,7 +900,7 @@ iframeMessenger.enableAutoResize();
 
 
 //global vars
-var dataset, data, projection;	
+var dataset, data, projection, isZoomed = true;	
 
 // from http://www.scienzagiovane.unibo.it/English/tsunami/5-tsunami-2004.html
 var tsunamiLat = 3.19; var tsunamiLon = 96;
@@ -924,13 +924,9 @@ $(function() {
 			return -1;
 		}
 	}
+
+
 });
-
-
-
-
-
-	
 
 
 function initData() {
@@ -938,13 +934,9 @@ function initData() {
 	"use strict";
 
 	var key = "1KnOjqvRKyLMF73Uky58tQFcg4zOVk2YrRzaZjx1no3o";
-
-	//var key = window.location.search.slice(1);
-				
+	//var key = window.location.search.slice(1);		
 				var url = "http://interactive.guim.co.uk/spreadsheetdata/" + key + ".json";
-
 				console.log(url);
-
 				$.getJSON(url, handleResponse);
 
 };
@@ -958,7 +950,10 @@ function handleResponse(data) {
 
 function buildView(){
 	populateDropDown();
-	addMap();
+	drawMap();
+
+	var limtedResize = _.debounce(render, 200);
+    $(window).resize(_.bind(limtedResize, this));
 }
 
 
@@ -974,27 +969,33 @@ function addListeners(){
     })
 }
 
+//responsiveness
+function render() {
 
-function upDateFromSelectFilters(e){
+	console.log("render");
+            // var data = EbolaData.getSheet('cases by date');
 
-    var newSort =  e.currentTarget.value;
-	d3.select("#IND").classed("country-selected", false);
- 	var newClip = "#"+newSort;
+            // if (data && data.length > 0) {
+            //     this.$el.html(this.template());
+            //     this.updateData();
+            drawMap();
+            // } else {
+            //     return this;
+            // }
 
- 	var newClip = d3.select(newClip)
-   	d3.select(".country-selected").classed("country-selected", false);
-   	newClip.classed("country-selected", true);
+            // var currentDay = this.allDays[this.date];
 
-  	_.each(dataset, function(item){
+            // var dataByDay = _.groupBy(this.countryData,function(i){
+            //     return i.date;
+            // });
 
-  		if (item.countryiso == newSort){
-  			setCountryData(item);
-  		}
+            // this.currentData = dataByDay[currentDay];
 
-  	})
+            //return this;
+        }
 
- }
 
+// dropdown
 function populateDropDown(){
 	var firstEntry = true;
 	
@@ -1016,21 +1017,60 @@ function populateDropDown(){
 
 }
 
+function upDateFromSelectFilters(e){
+
+    var newSort =  e.currentTarget.value;
+	d3.select("#IND").classed("country-selected", false);
+ 	var newClip = "#"+newSort;
+
+ 	var newClip = d3.select(newClip)
+   	d3.select(".country-selected").classed("country-selected", false);
+   	newClip.classed("country-selected", true);
+
+  	_.each(dataset, function(item){
+
+  		if (item.countryiso == newSort){
+  			setCountryData(item);
+  		}
+
+  	})
+
+ }
+
+
+
 //map
+function getDimensions() {
+            var width = $('#mapView').width();
+            var ratio = 0.6;
+            return {
+                width: width,
+                height: width * ratio,
+                scale: (width / 620)
+            };
+        }
 
-function addMap(){
+function drawMap(){
 
-
-
-    var width = $("#graphic-holder").width();
-    var height;
-    var scalefactor = 450 //width/2/Math.PI; //width / 13;
-    var topo;
+	$("#mapView").empty();
+	console.log('drawing map')
+	var dimensions = getDimensions();
+   // var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
+    var scale = 100 * dimensions.scale;
+    var translate = [dimensions.width / 2, dimensions.height / 2];
+    var center = [0, 0];
+    
+    if (isZoomed) {
+                scale *= 3;
+                center = [95.5, 10.5];
+                //center([tsunamiLon, tsunamiLat])
+          
+     }
 
     //var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
 
     //console.log(subunits)
-    height = width * 0.6
+
     // if (width > 1200){
     //     height = width * 0.6
     // }
@@ -1039,29 +1079,16 @@ function addMap(){
     //     height = width * 0.45
     // }
 
-
-    if (width < 700){
-        scalefactor = 400 
-     }
-
-	$("#graphic-holder").css("height", height);
+	$("#mapView").css("height", dimensions.height);
 
 	    projection = d3.geo.robinson()
-	            // .center([-250, 80 ]) // -20, 20
-	            // .scale(scalefactor)
-	            // .translate([0,40]);
-				.center([tsunamiLon, tsunamiLat])
-				.scale(scalefactor);
-	            //var center = [0, 0];
+	            .scale(scale)
+	            .center(center)
+	            .translate(translate);
             
-            // Center and zoom
-            //if (this.isZoomed) {
-                
-            //}
-
-	    svg = d3.select("#graphic-holder").append("svg")
-	            .attr("width", width)
-	            .attr("height", height)
+        svg = d3.select("#mapView").append("svg")
+	            .attr('width', dimensions.width)
+                .attr('height', dimensions.height)
 	            .attr("id", "svg_worldmap");
 
 	        var path = d3.geo.path().projection(projection);
