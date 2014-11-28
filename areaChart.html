@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.area {
+  fill: red;
+    stroke-width: 0;
+}
+
+svg {
+    background: rgba(77, 143, 167, .5);
+}
+
+</style>
+<body>
+<div id="areaGraphHolder"></div>
+
+</body>  
+<script src="http://d3js.org/d3.v3.js"></script>
+
+<script>
+
+//
+
+function drawAreaGraph(){
+        var graphW = 300; 
+        var lineData = [ { "x": 0,    "y": 110},  { "x": 70,   "y": 40},
+                         { "x": 140,   "y": 100}, 
+                         { "x": 210,  "y": 10},  
+                         { "x": 280,  "y": 100}
+                       ];             
+
+        // svg
+        var svg = d3.select("#areaGraphHolder").append("svg")
+                                   .attr("width", graphW)
+                                   .attr("height", graphW*0.6);
+                        
+        var area = d3.svg.area()
+                        .interpolate("monotone")
+            .x(function(d)  {  return x(d.x); })
+            .y0(230)
+            .y1(function(d) {  return y(d.y); });
+                        
+        //
+        var lineFunction = d3.svg.line()
+                       .x(function(d) { return d.x; })
+                       .y(function(d) { return d.y; });                 
+                        
+        var x = d3.scale.linear().range([0, 500]);
+        var y = d3.scale.linear().range([0, 230]);
+
+        x.domain(d3.extent(lineData,  function(d) { return d.x; }));
+        y.domain([0, d3.max(lineData, function(d) { return d.y; })]);
+                        
+        svg.append("path")
+            .attr("class", "area")
+            .attr("d", area(lineData));
+
+        var linegraph = svg.append("path")
+                    .attr("d", lineFunction(lineData))
+                    .attr("stroke", "red")
+                    .attr("stroke-width", 0)
+                    .attr("fill", "none");
+
+
+}
+
+drawAreaGraph();
+
+</script>
+
+
+</html>
