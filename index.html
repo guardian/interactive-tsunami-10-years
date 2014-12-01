@@ -159,12 +159,16 @@ h6{
 
 /* factbox graphics */
 .area {
-  fill: #005689;
-    stroke-width: 0;
+  fill: #FFF;
+  stroke-width: 0;
+}
+
+#col-4-graphic{
+	padding-left: 6px;
 }
 
 #areaGraphHolder svg {
-    background: rgba(255, 255, 255, .5);
+    background: rgba(0, 86, 137, 1);
 }
 
 
@@ -194,7 +198,6 @@ h6{
 	width:100%;
 	margin-bottom:36px;
 	padding:12px 12px 12px 0;
-	border-bottom: 1px solid #DCDCDC;
 }
 
 .graphBarCaptionTopStack{
@@ -246,7 +249,7 @@ h6{
 	font-weight:200;
 	text-align:left;
 	color:#767676;
-	padding: 3px 10px 24px 10px;
+	padding: 3px 10px 3px 10px;
 	clear: both;
 	/*border-bottom: 1px dotted #005689;*/
 }
@@ -1116,9 +1119,9 @@ h6{
 					</div>
 
 			<div id="col2" class="factbox-holder-col-center-left">
-						
-					<div id="col-2-number" class="large-number"> </div>
 						<div class="number-caption" id="col-2-caption"> </div>
+					<div id="col-2-number" class="large-number"> </div>
+						
 
 							<div id="graphHolder">
 					
@@ -1144,15 +1147,17 @@ h6{
 					</div>
 
 					<div id="col3" class="factbox-holder-col-center-right">
-						<div id="col-3-number" class="large-number"> </div>
 						<div class="number-caption"  id="col-3-caption"> </div>
+						<div id="col-3-number" class="large-number"> </div>
+						
 						<div id="areaGraphHolder"></div>
 					</div>
 
 
 					<div id="col4" class="factbox-holder-col-right">
-						<div id="col-4-number" class="large-number"> </div>
 						<div class="number-caption"  id="col-4-caption"> </div>
+						<div id="col-4-number" class="large-number"> </div>
+						
 						<div id="col-4-graphic"></div>
 					</div>
 			</div>
@@ -1197,9 +1202,6 @@ var dataset, data, projection, isZoomed = true;
 
 // from http://www.scienzagiovane.unibo.it/English/tsunami/5-tsunami-2004.html
 var tsunamiLat = 3.19; var tsunamiLon = 96;
-
-
-var svg16x40 = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path fill="#CCCCCC" d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
 
 
 $(function() {
@@ -1345,7 +1347,6 @@ function getDimensions() {
 function drawMap(){
 
 	$("#mapView").empty();
-	console.log('drawing map')
 	var dimensions = getDimensions();
    // var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
     var scale = 100 * dimensions.scale;
@@ -1455,63 +1456,105 @@ function drawMap(){
 
 }
 
+function drawCasualtiesChart (obj){
+	var htmlStr = "  ";
+
+
+	var svg16x40 = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path fill="#CCCCCC" d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
+
+	for(var i = 0; i<(obj.casualties/100); i++){
+		htmlStr = htmlStr + svg16x40;
+	}
+
+	$("#col-4-graphic").html(htmlStr);
+}
+
+function upDateArea(obj){
+
+	var area =d3.select(".area");
+
+	// WORK HERE!!!
+
+	d3.selectAll("#areaGraphHolder svg").path
+		.transition()
+	  	.delay(500)
+	  	.duration(750)
+	  	.attr("fill-opacity","0.05")
+
+
+	 console.log(area.attr("alpha"))
+
+	 	// WORK HERE!!!
+
+}
+
 function drawAreaGraph(obj){
 
-	console.log(obj.waveheightminimumm+"  "+obj.waveheightmaximumm)
+
 		$("#areaGraphHolder").empty()
         var graphW = $("#areaGraphHolder").width(); 
-        var graphH = graphW*0.4;
+        var graphH = graphW*0.5;
+		var waveGraphUnit = 0;
 
-        var lineData = [ { "x": 0,    "y": graphH},  { "x": 30,   "y": (obj.waveheightminimumm*50)},
-                         { "x": 60,   "y": graphH}, 
-                         { "x": 90,  "y": (obj.waveheightmaximumm*50)},  
+		_.each(dataset, function(item){
+		  		if (item.waveheightmaximumm > waveGraphUnit){
+		  			waveGraphUnit = item.waveheightmaximumm;
+		  			waveGraphUnit = graphH/waveGraphUnit;
+		  		}
+		})
+		
+		console.log(obj.waveheightmaximumm * waveGraphUnit)
+
+		var lineData = [ { "x": 0,    "y": graphH}, 
+							{ "x": 30,  "y": (graphH-((obj.waveheightminimumm) * waveGraphUnit))},   
+                         { "x": 60,   "y": graphH-10}, 
+                         { "x": 90,   "y": (graphH-((obj.waveheightmaximumm-0.1) * waveGraphUnit))},
                          { "x": 120,  "y": graphH}
                        ];             
-
+		
+		
         // svg
         var svg = d3.select("#areaGraphHolder").append("svg")
-                                   .attr("width", graphW)
-                                   .attr("height", graphH);
+                .attr("width", graphW)
+                .attr("height", graphH);
                         
         var area = d3.svg.area()
-                        .interpolate("monotone")
-            .x(function(d)  {  return x(d.x); })
-            .y0(230)
-            .y1(function(d) {  return y(d.y); });
+            .interpolate("monotone")
+            .x(function(d)  {  return x(d.x); }).y0(0).y1(function(d) {  return y(d.y); });
                         
         //
         var lineFunction = d3.svg.line()
                        .x(function(d) { return d.x; })
                        .y(function(d) { return d.y; });                 
                         
-        var x = d3.scale.linear().range([0, 500]);
-        var y = d3.scale.linear().range([0, 230]);
+        var x = d3.scale.linear().range([0, graphW]);
+        var y = d3.scale.linear().range([0, graphH]);
 
         x.domain(d3.extent(lineData,  function(d) { return d.x; }));
         y.domain([0, d3.max(lineData, function(d) { return d.y; })]);
                         
         svg.append("path")
             .attr("class", "area")
+            .attr("fill-opacity","0.3")
             .attr("d", area(lineData));
 
-        var linegraph = svg.append("path")
-                    .attr("d", lineFunction(lineData))
-                    .attr("stroke", "red")
-                    .attr("stroke-width", 0)
-                    .attr("fill", "none");
+        // var linegraph = svg.append("path")
+        //             .attr("d", lineFunction(lineData))
+        //             .attr("stroke", "red")
+        //             .attr("stroke-width", 3)
+        //             .attr("fill", "none");
 
+
+upDateArea(obj)
 
 }
 
 
 function updateBarGraph(obj){
 
-	console.log(obj)
-	
 	var maxVal = 0;
 	var unitVal = 0;
 
-	
 		 	if (!isNaN(obj.fundssecuredusd) && obj.fundssecuredusd > maxVal)
 		 	{ maxVal = obj.fundssecuredusd }
 
@@ -1520,32 +1563,32 @@ function updateBarGraph(obj){
 
 		 	if (!isNaN(obj.valueofdamagesusd) && obj.valueofdamagesusd > maxVal)
 		 	{ maxVal = obj.valueofdamagesusd }	
-	
-		 console.log(maxVal)
 
-	unitVal = ($(".graphBarHolder").width()/maxVal)
+			unitVal = ($(".graphBarHolder").width()/maxVal)
 
 			var fundsVal = (obj.fundssecuredusd * unitVal);
 			var needsVal = (obj.needforrecoveryusd * unitVal);
 			var damagesVal = (obj.valueofdamagesusd * unitVal);
 
+			d3.select('#bar_Value').transition().delay(750).attr("offsetWidth",damagesVal+"px"+"px");
+
+			
+
 			$('#bar_Funds').css("width",fundsVal+"px");
 			$('#bar_Cost').css("width",needsVal+"px");
 			$('#bar_Value').css("width",damagesVal+"px");
-
 
 			$('#bar_Funds_B').html(formatCurrency(obj.fundssecuredusd))	
 			$('#bar_Cost_B').html(formatCurrency(obj.needforrecoveryusd))	
 			$('#bar_Value_B').html(formatCurrency(obj.valueofdamagesusd))		
 
-
-			layoutGraphCaptions ($('#bar_Funds_B'), $('#cap_Funds'), $('#bar_Funds'));
-			layoutGraphCaptions ($('#bar_Cost_B'), $('#cap_Cost'), $('#bar_Cost'));
-			layoutGraphCaptions ($('#bar_Value_B'), $('#cap_Value'), $('#bar_Value'));	        
+			layoutBarGraphCaptions ($('#bar_Funds_B'), $('#cap_Funds'), $('#bar_Funds'));
+			layoutBarGraphCaptions ($('#bar_Cost_B'), $('#cap_Cost'), $('#bar_Cost'));
+			layoutBarGraphCaptions ($('#bar_Value_B'), $('#cap_Value'), $('#bar_Value'));	        
 
 }
 
-function layoutGraphCaptions (caption, captionTitle, bar){
+function layoutBarGraphCaptions (caption, captionTitle, bar){
 
 	if ($(caption).width() < $(bar).width() || $(captionTitle).width() < $(bar).width()){
             $(caption).css("margin-left", 3)
@@ -1558,7 +1601,7 @@ function layoutGraphCaptions (caption, captionTitle, bar){
             $(caption).css("margin-left", 3+$(bar).width())
             $(captionTitle).css("margin-left", 3+$(bar).width())
             $(caption).css("color", "#333")
-            $(captionTitle).css("color", globalFill)
+            $(captionTitle).css("color",  "#333")
         }
 }					
 
@@ -1594,21 +1637,13 @@ function setCountryData(obj){
     $('#col-2-caption').html(fundsStr);
     $('#col-2-number').html(addCommas(fundsData))
     $('#col-3-caption').html("wave height");
-    $('#col-3-number').html(obj.waveheightmaximumm+"m")
+    $('#col-3-number').html(obj.waveheightminimumm+"–"+obj.waveheightmaximumm+"m")
     $('#col-4-caption').html("Casualties");
     $('#col-4-number').html(addCommas(obj.casualties))
 
 
-	var htmlStr = "  ";
-
-	for(var i = 0; i<(obj.casualties/100); i++){
-		htmlStr = htmlStr + svg16x40;
-		
-
-	}
-
-	$("#col-4-graphic").html(htmlStr);
-
+	
+      drawCasualtiesChart(obj);	
       drawAreaGraph(obj);
 	  updateBarGraph(obj)  
 }
