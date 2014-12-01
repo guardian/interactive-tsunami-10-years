@@ -117,6 +117,10 @@ h6{
 	height: auto;
 }
 
+#topArea{
+	margin-bottom:12px;
+}
+
 .drop-down-text-title{
 	postion: relative;
 	left: 0px;
@@ -187,8 +191,6 @@ h6{
 
 #graphHolder{
 	position: relative;
-	float:left;
-	clear:right;
 	width:100%;
 	margin-bottom:36px;
 	padding:12px 12px 12px 0;
@@ -225,7 +227,7 @@ h6{
 .large-number{
 	font-family: "Guardian Egyptian Headline", Georgia, serif;
 	font-weight: 200;
-	font-size: 8.4em;
+	font-size: 7.2em;
 	float: left;
 	clear: right;
 	text-align: left;
@@ -274,265 +276,460 @@ h6{
 
 @media only screen and (max-width:599px){
 
-.key-item-title {
-	width:20px;
-}
-
-.notes-header{
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-weight: 600;
-	
-	
-}
-
-#heatmap-key{
-	background-color: rgba(255, 255, 255, 1);
-    clear: right;
-    display: inline;
-    float: left;
-    left: 0;
-    padding: 36px 0 3px;
-    position: absolute;
-    top: 228px;
-    width: 320px;
-}
-
-
-.key-item-title, .key-item-title-short, .key-item, .key-item-short{
-	width:100px;
-	height:auto;
-	float:left;
-	clear:right;
-	padding-left: 12px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-weight: 600;
-	font-size:1.2em;
-	line-height: 1.5em;
-	color: #333;
-	margin-bottom: 10px;
-}
-
-.key-item{
-	width:auto;
-	font-weight: 400;
-	
-}
-
-.key-item-short{
-	width:auto;
-	font-weight: 400;
-}
-
-.key-item-title {
-	width:auto;
-	float:left;
-	clear:right;
-	padding-left:3px;
-
-}
-	
-#button-holder{
-	position: absolute;
-	left:3px;
-	top:48px;
-
-	width: 100%;
-	float:right;
-	clear:left;
-  	text-align: center;
-  	padding-top:23px;
-	height:auto;
-}
+	#heatmap-key{
+				background-color: rgba(255, 255, 255, 1);
+			    clear: right;
+			    float: left;
+			    left: 0;
+			    padding: 24px 0 3px 6px;
+			    position: relative;
+			    top: 0;
+			    width: 100%;
+			}
+				
+			#button-holder{
+				position: relative;
+				left:3px;
+				top:3px;
+				width: 100%;
+				float:left;
+				clear:right;
+			  	text-align: center;
+			  	padding-top:23px;
+				height:auto;
+			}
 
 
-.buttonnav {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 12px 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	overflow:hidden;
-	color: #FFFFFF;
-	background-color: #bdbdbd !important;
-	cursor:pointer;
-}
+			.buttonnav {
+			    float: right;
+			    width:auto;
+			    min-width:80px;
+				height:25px;
+				border-radius: 16px;
+				text-align: center;
+				margin: 0 12px 12px 0;
+				padding: 7px 9px 0 9px;
+				font-family: "Guardian Agate Sans", Arial, sans-serif;
+				font-size: 15px;
+				overflow:hidden;
+				color: #FFFFFF;
+				background-color: #bdbdbd !important;
+				cursor:pointer;
+			}
 
-.buttonnav-selected {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 12px 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	color: #FFFFFF;
-	cursor:pointer;
-}
-
-
-.copy-holder-top {
-     background-color: #fff;
-    clear: right;
-    color: #005689;
-    float: left;
-    font-family: "Guardian Agate Sans",Georgia,serif;
-    font-size: 1.5em;
-    font-weight: 200;
-    height: 180px;
-    left: 0;
-    line-height: 1.3em;
-    margin: 0 0 12px;
-    padding: 3px 0 0 3px;
-    position: absolute;
-    top: 836px;
-    width: 310px;
-}
-
-.copy-holder-top b{
-	font-weight:500;
-	}
+			.buttonnav-selected {
+			    float: right;
+			    width:auto;
+			    min-width:80px;
+				height:25px;
+				border-radius: 16px;
+				text-align: center;
+				margin: 0 12px 12px 0;
+				padding: 7px 9px 0 9px;
+				font-family: "Guardian Agate Sans", Arial, sans-serif;
+				font-size: 15px;
+				color: #FFFFFF;
+				cursor:pointer;
+			}
 
 
-.large-number-top{
-	border-top: 1px solid #dcdcdc;
-	color: #005689;
-	float: left;
-	font-family: "Guardian Egyptian Headline",Georgia,serif;
-	font-size: 4.5em;
-	font-weight: 200;
-	padding: 3px 10px 0 0;
-	position: absolute;
-	text-align: left;
-	top: 120px;
-	width: 98%;
-}
+			.copy-holder-top {
+			    clear: right;
+			    color: #005689;
+			    float: left;
+			    font-family: "Guardian Egyptian Headline",Georgia,serif;
+			    font-size: 2.2em;
+			    font-weight: 200;
+			    left: 0;
+			    line-height: 1.3em;
+			    margin: 0 0 12px 0px;
+			   	border-left: 1px solid #005689;
+			    padding: 3px 0 0 10px;
+			    position: relative;
+			    
+			    width: 450px;
+			    height: 192px;
+
+			    background-color: #FFF;
+			}
 
 
-#mapView{
-	position: relative;
-	left:3px;
-	top:3px;
-	width: 100%;
-	height:320px;
-	float:left;
-	clear:right;
-	display:inline;
-}
+			.large-number-top{
+				font-family: "Guardian Egyptian Headline", Georgia, serif;
+				font-weight:200;
+				font-size: 10em;
+				float:left;
 
-#graphHolder{
-	border-top: 1px solid #dcdcdc;
-    position: absolute;
-    top: 288px;
-    width: 100%;
-}
+				text-align: left;
+				
+				padding: 0px 10px 0px 0px;
+				width: 225px;
+				
+				
+				color: #005689;
+			}
 
-.factbox-holder-col-left{
-	position: relative;
-	width: 300px;
-	height: 24px;
-	float: left;
-	clear: right;
-}
+			#mapView{
+				position: relative;
+				left:3px;
+				top:3px;
+				width: 100%;
+				float:left;
+				clear:right;
+				border-top: 1px solid #dcdcdc;
+			}
 
-.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
-	position: relative;
-	width:320px;
-	float:left;
-	padding-left: 0px;
-	border-bottom: 1px solid #dcdcdc;
-	height:auto;
+			.factbox-holder-col-left{
+				position: relative;
+				width:140px;
+				height:48px;
+				float:left;
+				clear:right;
+				padding-right: 10px;
+				/*margin-bottom:100%;*/
 
-}
-
-#factbox-holder{
-	position: relative;
-	left: 0px;
-	float: left;
-	clear: right;
-	margin: 12px 0 12px 6px;
-	max-width: 1260px;
-	min-width: 300px;
-	width: 100%;
-	background-color: #FFF;
-}
-
-
-.timeline{
-	background-color: #fff;
-	clear: right;
-	float: left;
-	max-width: 1260px;
-	min-width: 320px;
-	padding: 0 0 12px;
-	position: absolute;
-	width: 90%;
-	top: 180px;
-	left: -30px;
-	margin-left: 0;
-
-}
-
-#drop-down-holder{
-	position:relative;
-	width:90%;
-	display:inline;
-}
-
-.number-caption{
-	font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
-	font-weight: 400;
-	font-size: 1.5em;
-	line-height: 1.2em;
-	font-weight:200;
-	text-align:left;
-	color:#767676;
-	padding: 1px 10px 12px 0;
-	clear: both;
-	/*border-bottom: 1px dotted #005689;*/
-}
-
-
-.large-number{
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 200;
-	font-size: 3em;
-	float: left;
-	clear: right;
-	text-align: left;
-	width: 100%;
-	padding: 3px 10px 0 0;
-	margin: 0;
-	color: #bdbdbd;
-}
+			}
 
 
 
-.small-col-header{
-	clear: right;
-    color: #005689;
-    float:left;
-	clear:right;
-	text-align: left;
-	position: relative;
-	left: 0;
-	padding-top:3px;
-    font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
-	font-weight: 600;
-	font-size: 1.5em;
-	line-height: 1.2em;
-    height: auto;
-
-}
+			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+				position: relative;
+				width:320px;
+				float:left;
+				padding-left: 3px;
+				height:auto;
+			}
 
 
+			#factbox-holder{
+				position: relative;
+				top:0px;
+				left:0px;
+				float:left;
+				clear:right;
+				margin:0 0 12px 3px;
+				padding-top:6px;
+				max-width: 1260px;
+				min-width:320px;
+				width:100%;
+				border-top: 1px solid #dcdcdc;
+				background-color: #FFF;
+			}
+
+			.timeline{
+				
+				background-color: #fff;
+			    clear: right;
+			    float: left;
+			    max-width: 1260px;
+			    min-width: 320px;
+			    padding: 0 0 12px;
+			    position: relative;
+			    width: 100%;
+			    top:0px;
+			    left: 0px;
+
+			}
+
+			#drop-down-holder{
+				position:relative;
+				width:90%;
+				display:inline;
+			}
+
+		.large-number{
+			font-family: "Guardian Egyptian Headline", Georgia, serif;
+			font-weight: 200;
+			font-size: 3em;
+			float: left;
+			clear: right;
+			text-align: left;
+			width: 100%;
+			padding: 3px 10px 0 0;
+			margin: 0;
+			color: #bdbdbd;
+		}
+
+		.number-caption{
+			font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
+			font-weight: 400;
+			font-size: 1.5em;
+			line-height: 1.2em;
+			font-weight:200;
+			text-align:left;
+			color:#767676;
+			padding: 1px 10px 12px 0;
+			clear: both;
+		}
+
+		/*.key-item-title {
+			width:20px;
+		}
+
+		.notes-header{
+			font-family: "Guardian Agate Sans", Arial, sans-serif;
+			font-weight: 600;
+			
+			
+		}
+
+		#heatmap-key{
+			background-color: rgba(255, 255, 255, 1);
+		    clear: right;
+		    display: inline;
+		    float: left;
+		    left: 0;
+		    padding: 36px 0 3px;
+		    position: absolute;
+		    top: 228px;
+		    width: 320px;
+		}
+
+
+		.key-item-title, .key-item-title-short, .key-item, .key-item-short{
+			width:100px;
+			height:auto;
+			float:left;
+			clear:right;
+			padding-left: 12px;
+			font-family: "Guardian Agate Sans", Arial, sans-serif;
+			font-weight: 600;
+			font-size:1.2em;
+			line-height: 1.5em;
+			color: #333;
+			margin-bottom: 10px;
+		}
+
+		.key-item{
+			width:auto;
+			font-weight: 400;
+			
+		}
+
+		.key-item-short{
+			width:auto;
+			font-weight: 400;
+		}
+
+		.key-item-title {
+			width:auto;
+			float:left;
+			clear:right;
+			padding-left:3px;
+
+		}
+			
+		#button-holder{
+			position: absolute;
+			left:3px;
+			top:48px;
+
+			width: 100%;
+			float:right;
+			clear:left;
+		  	text-align: center;
+		  	padding-top:23px;
+			height:auto;
+		}
+
+
+		.buttonnav {
+		    float: right;
+		    width:auto;
+		    min-width:80px;
+			height:25px;
+			border-radius: 16px;
+			text-align: center;
+			margin: 0 12px 12px 0;
+			padding: 7px 9px 0 9px;
+			font-family: "Guardian Agate Sans", Arial, sans-serif;
+			font-size: 15px;
+			overflow:hidden;
+			color: #FFFFFF;
+			background-color: #bdbdbd !important;
+			cursor:pointer;
+		}
+
+		.buttonnav-selected {
+		    float: right;
+		    width:auto;
+		    min-width:80px;
+			height:25px;
+			border-radius: 16px;
+			text-align: center;
+			margin: 0 12px 12px 0;
+			padding: 7px 9px 0 9px;
+			font-family: "Guardian Agate Sans", Arial, sans-serif;
+			font-size: 15px;
+			color: #FFFFFF;
+			cursor:pointer;
+		}
+
+
+		.copy-holder-top {
+		     background-color: #fff;
+		    clear: right;
+		    color: #005689;
+		    float: left;
+		    font-family: "Guardian Agate Sans",Georgia,serif;
+		    font-size: 1.5em;
+		    font-weight: 200;
+		    height: 180px;
+		    left: 0;
+		    line-height: 1.3em;
+		    margin: 0 0 12px;
+		    padding: 3px 0 0 3px;
+		    position: absolute;
+		    top: 836px;
+		    width: 310px;
+		}
+
+		.copy-holder-top b{
+			font-weight:500;
+			}
+
+
+		.large-number-top{
+			border-top: 1px solid #dcdcdc;
+			color: #005689;
+			float: left;
+			font-family: "Guardian Egyptian Headline",Georgia,serif;
+			font-size: 4.5em;
+			font-weight: 200;
+			padding: 3px 10px 0 0;
+			position: absolute;
+			text-align: left;
+			top: 120px;
+			width: 98%;
+		}
+
+
+		#mapView{
+			position: relative;
+			left:3px;
+			top:3px;
+			width: 100%;
+			height:320px;
+			float:left;
+			clear:right;
+			display:inline;
+		}
+
+		#graphHolder{
+			border-top: 1px solid #dcdcdc;
+		    position: absolute;
+		    top: 288px;
+		    width: 100%;
+		}
+
+		.factbox-holder-col-left{
+				position: relative;
+				width:140px;
+				height:48px;
+				float:left;
+				clear:right;
+				padding-right: 10px;
+				
+
+			}
+
+
+
+			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+				position: relative;
+				width:320px;
+				float:left;
+				padding-left: 10px;
+				border-left: 1px solid #dcdcdc;
+				height:auto;
+			}
+
+
+			#factbox-holder{
+				position: relative;
+				top:0px;
+				left:0px;
+				float:left;
+				clear:right;
+				margin:0 0 12px 3px;
+				padding-top:6px;
+				max-width: 1260px;
+				min-width:320px;
+				width:100%;
+				border-top: 1px solid #dcdcdc;
+				background-color: #FFF;
+			}
+
+		
+
+
+		.timeline{
+			background-color: #fff;
+			clear: right;
+			float: left;
+			max-width: 1260px;
+			min-width: 320px;
+			padding: 0 0 12px;
+			position: absolute;
+			width: 90%;
+			top: 180px;
+			left: -30px;
+			margin-left: 0;
+
+		}
+
+		#drop-down-holder{
+			position:relative;
+			width:90%;
+			display:inline;
+		}
+
+		.number-caption{
+			font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
+			font-weight: 400;
+			font-size: 1.5em;
+			line-height: 1.2em;
+			font-weight:200;
+			text-align:left;
+			color:#767676;
+			padding: 1px 10px 12px 0;
+			clear: both;
+		}
+
+
+		.large-number{
+			font-family: "Guardian Egyptian Headline", Georgia, serif;
+			font-weight: 200;
+			font-size: 3em;
+			float: left;
+			clear: right;
+			text-align: left;
+			width: 100%;
+			padding: 3px 10px 0 0;
+			margin: 0;
+			color: #bdbdbd;
+		}
+
+
+
+		.small-col-header{
+			clear: right;
+		    color: #005689;
+		    float:left;
+			clear:right;
+			text-align: left;
+			position: relative;
+			left: 0;
+			padding-top:3px;
+		    font-family: "Guardian Agate Sans", "Helvetica", Arial, sans-serif;
+			font-weight: 600;
+			font-size: 1.5em;
+			line-height: 1.2em;
+		    height: auto;
+
+		}
+
+*/
 
 }
 
@@ -540,166 +737,167 @@ h6{
 
 @media only screen and (min-width : 600px) and (max-width : 1199px){
 
-#heatmap-key{
-	background-color: rgba(255, 255, 255, 1);
-    clear: right;
-    float: left;
-    left: 0;
-    padding: 24px 0 3px 6px;
-    position: relative;
-    top: 0;
-    width: 100%;
-}
-	
-#button-holder{
-	position: relative;
-	left:3px;
-	top:3px;
-	width: 100%;
-	float:left;
-	clear:right;
-  	text-align: center;
-  	padding-top:23px;
-	height:auto;
-}
+			#heatmap-key{
+				background-color: rgba(255, 255, 255, 1);
+			    clear: right;
+			    float: left;
+			    left: 0;
+			    padding: 24px 0 3px 6px;
+			    position: relative;
+			    top: 0;
+			    width: 100%;
+			}
+				
+			#button-holder{
+				position: relative;
+				left:3px;
+				top:3px;
+				width: 100%;
+				float:left;
+				clear:right;
+			  	text-align: center;
+			  	padding-top:23px;
+				height:auto;
+			}
 
 
-.buttonnav {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 12px 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	overflow:hidden;
-	color: #FFFFFF;
-	background-color: #bdbdbd !important;
-	cursor:pointer;
-}
+			.buttonnav {
+			    float: right;
+			    width:auto;
+			    min-width:80px;
+				height:25px;
+				border-radius: 16px;
+				text-align: center;
+				margin: 0 12px 12px 0;
+				padding: 7px 9px 0 9px;
+				font-family: "Guardian Agate Sans", Arial, sans-serif;
+				font-size: 15px;
+				overflow:hidden;
+				color: #FFFFFF;
+				background-color: #bdbdbd !important;
+				cursor:pointer;
+			}
 
-.buttonnav-selected {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 12px 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	color: #FFFFFF;
-	cursor:pointer;
-}
-
-
-.copy-holder-top {
-    clear: right;
-    color: #005689;
-    float: left;
-    font-family: "Guardian Egyptian Headline",Georgia,serif;
-    font-size: 2.2em;
-    font-weight: 200;
-    left: 0;
-    line-height: 1.3em;
-    margin: 0 0 12px 0px;
-   	border-left: 1px solid #005689;
-    padding: 3px 0 0 10px;
-    position: relative;
-    
-    width: 450px;
-    height: 192px;
-
-    background-color: #FFF;
-}
+			.buttonnav-selected {
+			    float: right;
+			    width:auto;
+			    min-width:80px;
+				height:25px;
+				border-radius: 16px;
+				text-align: center;
+				margin: 0 12px 12px 0;
+				padding: 7px 9px 0 9px;
+				font-family: "Guardian Agate Sans", Arial, sans-serif;
+				font-size: 15px;
+				color: #FFFFFF;
+				cursor:pointer;
+			}
 
 
-.large-number-top{
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight:200;
-	font-size: 10em;
-	float:left;
+			.copy-holder-top {
+			    clear: right;
+			    color: #005689;
+			    float: left;
+			    font-family: "Guardian Egyptian Headline",Georgia,serif;
+			    font-size: 2.2em;
+			    font-weight: 200;
+			    left: 0;
+			    line-height: 1.3em;
+			    margin: 0 0 12px 0px;
+			   	border-left: 1px solid #005689;
+			    padding: 3px 0 0 10px;
+			    position: relative;
+			    
+			    width: 450px;
+			    height: 192px;
 
-	text-align: left;
-	
-	padding: 0px 10px 0px 0px;
-	width: 225px;
-	
-	
-	color: #005689;
-}
-
-#mapView{
-	position: relative;
-	left:3px;
-	top:3px;
-	width: 100%;
-	float:left;
-	clear:right;
-	border-top: 1px solid #dcdcdc;
-}
-
-.factbox-holder-col-left{
-	position: relative;
-	width:140px;
-	height:auto;
-	float:left;
-	clear:right;
-	padding-right: 10px;
-	margin-bottom:100%;
-
-}
+			    background-color: #FFF;
+			}
 
 
+			.large-number-top{
+				font-family: "Guardian Egyptian Headline", Georgia, serif;
+				font-weight:200;
+				font-size: 10em;
+				float:left;
 
-.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
-	position: relative;
-	width:320px;
-	float:left;
-	padding-left: 10px;
-	border-left: 1px solid #dcdcdc;
-	height:240px;
-}
+				text-align: left;
+				
+				padding: 0px 10px 0px 0px;
+				width: 225px;
+				
+				
+				color: #005689;
+			}
+
+			#mapView{
+				position: relative;
+				left:3px;
+				top:3px;
+				width: 100%;
+				float:left;
+				clear:right;
+				border-top: 1px solid #dcdcdc;
+			}
+
+			.factbox-holder-col-left{
+				position: relative;
+				width:140px;
+				height:48px;
+				float:left;
+				clear:right;
+				padding-right: 10px;
+				/*margin-bottom:100%;*/
+
+			}
 
 
-#factbox-holder{
-	position: relative;
-	top:0px;
-	left:0px;
-	float:left;
-	clear:right;
-	margin:0 0 12px 6px;
-	max-width: 1260px;
-	min-width:320px;
-	width:100%;
 
-	background-color: #FFF;
-}
+			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+				position: relative;
+				width:320px;
+				float:left;
+				padding-left: 10px;
+				border-left: 1px solid #dcdcdc;
+				height:auto;
+			}
 
-.timeline{
-	
-	background-color: #fff;
-    clear: right;
-    float: left;
-    max-width: 1260px;
-    min-width: 320px;
-    padding: 0 0 12px;
-    position: relative;
-    width: 100%;
-    top:0px;
-    left: 0px;
 
-}
+			#factbox-holder{
+				position: relative;
+				top:0px;
+				left:0px;
+				float:left;
+				clear:right;
+				margin:0 0 12px 3px;
+				padding-top:6px;
+				max-width: 1260px;
+				min-width:320px;
+				width:100%;
+				border-top: 1px solid #dcdcdc;
+				background-color: #FFF;
+			}
 
-#drop-down-holder{
-	position:relative;
-	width:90%;
-	display:inline;
-}
+			.timeline{
+				
+				background-color: #fff;
+			    clear: right;
+			    float: left;
+			    max-width: 1260px;
+			    min-width: 320px;
+			    padding: 0 0 12px;
+			    position: relative;
+			    width: 100%;
+			    top:0px;
+			    left: 0px;
+
+			}
+
+			#drop-down-holder{
+				position:relative;
+				width:90%;
+				display:inline;
+			}
 
 }
 
@@ -820,7 +1018,7 @@ h6{
 	float:left;
 	clear:right;
 	border-left: 1px solid #dcdcdc;
-	height:240px;
+	height:320px;
 }
 
 
@@ -924,21 +1122,21 @@ h6{
 
 							<div id="graphHolder">
 					
-									<div class="graphBarHolder"id="bar_CHN_C">
+									<div class="graphBarHolder"id="bar_Value_C">
 										<div class="graphBarHolderInner" id="bar_Value"></div>
 										<div class="graphBarCaptionTopStack"  id="cap_Value">Value of damages USD</div>
 										<div class="graphBarCaptionBottomStack"  id="bar_Value_B"> </div>
 									</div>
 									
-									<div class="graphBarHolder" id="bar_USA_C">
+									<div class="graphBarHolder" id="bar_Cost_C">
 										<div class="graphBarHolderInner" id="bar_Cost"></div>
 										<div class="graphBarCaptionTopStack"  id="cap_Cost">Cost of recovery USD</div>
 										<div class="graphBarCaptionBottomStack"  id="bar_Cost_B"> </div>	
 									</div>
 									
-									<div class="graphBarHolder" id="bar_IND_C">
+									<div class="graphBarHolder" id="bar_Funds_C">
 										<div class="graphBarHolderInner" id="bar_Funds"></div>
-										<div class="graphBarCaptionTopStack"  id="cap_Secured">Recovery funds secured USD</div>
+										<div class="graphBarCaptionTopStack"  id="cap_Funds">Recovery funds secured USD</div>
 										<div class="graphBarCaptionBottomStack"  id="bar_Funds_B"> </div>
 									</div>
 
@@ -1136,7 +1334,7 @@ function upDateFromSelectFilters(e){
 
 function getDimensions() {
             var width = $('#mapView').width();
-            var ratio = 0.6;
+            var ratio = 0.45;
             return {
                 width: width,
                 height: width * ratio,
@@ -1313,63 +1511,56 @@ function updateBarGraph(obj){
 	var maxVal = 0;
 	var unitVal = 0;
 
-	 _.each(dataset, function(item){
-		 	if (!isNaN(item.fundssecuredusd) && item.fundssecuredusd > maxVal)
-		 	{ maxVal = item.fundssecuredusd }
+	
+		 	if (!isNaN(obj.fundssecuredusd) && obj.fundssecuredusd > maxVal)
+		 	{ maxVal = obj.fundssecuredusd }
 
-		 	if (!isNaN(item.needforrecoveryusd) && item.needforrecoveryusd > maxVal)
-		 	{ maxVal = item.needforrecoveryusd }
+		 	if (!isNaN(obj.needforrecoveryusd) && obj.needforrecoveryusd > maxVal)
+		 	{ maxVal = obj.needforrecoveryusd }
 
-		 	if (!isNaN(item.valueofdamagesusd) && item.valueofdamagesusd > maxVal)
-		 	{ maxVal = item.valueofdamagesusd }	
-	 });
-
-	maxVal = maxVal/10000000;
+		 	if (!isNaN(obj.valueofdamagesusd) && obj.valueofdamagesusd > maxVal)
+		 	{ maxVal = obj.valueofdamagesusd }	
+	
+		 console.log(maxVal)
 
 	unitVal = ($(".graphBarHolder").width()/maxVal)
 
-			var fundsVal = (obj.fundssecuredusd * unitVal)/1000000000;
-			var needsVal = (obj.needforrecoveryusd * unitVal)/1000000000;
-			var damagesVal = (obj.valueofdamagesusd * unitVal)/1000000000;
+			var fundsVal = (obj.fundssecuredusd * unitVal);
+			var needsVal = (obj.needforrecoveryusd * unitVal);
+			var damagesVal = (obj.valueofdamagesusd * unitVal);
 
 			$('#bar_Funds').css("width",fundsVal+"px");
 			$('#bar_Cost').css("width",needsVal+"px");
 			$('#bar_Value').css("width",damagesVal+"px");
 
 
-
 			$('#bar_Funds_B').html(formatCurrency(obj.fundssecuredusd))	
 			$('#bar_Cost_B').html(formatCurrency(obj.needforrecoveryusd))	
-			$('#bar_Value_B').html(formatCurrency(obj.valueofdamagesusd))			        // var newCaption = "#cap_"+item.countrycode;  #bar_Cost #bar_Value
-						        // var newCaptionStat = "#cap_"+item.countrycode+"_B";
-						        // var newW = newVal * measureUnit * graphScaleFactor;
-
-						        // $(newClip).css("width", newW);
-
-						        // $(newCaption).html(item.country);
-						        // $(newCaptionStat).html(item.valA);
+			$('#bar_Value_B').html(formatCurrency(obj.valueofdamagesusd))		
 
 
+			layoutGraphCaptions ($('#bar_Funds_B'), $('#cap_Funds'), $('#bar_Funds'));
+			layoutGraphCaptions ($('#bar_Cost_B'), $('#cap_Cost'), $('#bar_Cost'));
+			layoutGraphCaptions ($('#bar_Value_B'), $('#cap_Value'), $('#bar_Value'));	        
 
-						        // if ($(newCaption).width() < $(newClip).width() || $(newCaptionStat).width() < $(newClip).width()){
-						        //     $(newCaption).css("margin-left", 3)
-						        //     $(newCaptionStat).css("margin-left", 3)
+}
 
-						        //     $(newCaption).css("color", "#DCDCDC")
-						        //     $(newCaptionStat).css("color", "#DCDCDC")
-						        // }
+function layoutGraphCaptions (caption, captionTitle, bar){
 
-						        // if ($(newCaption).width() > $(newClip).width() || $(newCaptionStat).width() > $(newClip).width()){
-						        //     $(newCaption).css("margin-left", 3+$(newClip).width())
-						        //     $(newCaptionStat).css("margin-left", 3+$(newClip).width())
+	if ($(caption).width() < $(bar).width() || $(captionTitle).width() < $(bar).width()){
+            $(caption).css("margin-left", 3)
+            $(captionTitle).css("margin-left", 3)
+            $(caption).css("color", "#DCDCDC")
+            $(captionTitle).css("color", "#DCDCDC")
+        }
 
-						        //     $(newCaption).css("color", "#333")
-						        //     $(newCaptionStat).css("color", globalFill)
-						        // }
-						//})
-
-        
-					}
+     if ($(caption).width() > $(bar).width() || $(captionTitle).width() > $(bar).width()){
+            $(caption).css("margin-left", 3+$(bar).width())
+            $(captionTitle).css("margin-left", 3+$(bar).width())
+            $(caption).css("color", "#333")
+            $(captionTitle).css("color", globalFill)
+        }
+}					
 
 
 function pulse() {
@@ -1383,9 +1574,25 @@ function pulse() {
 
 function setCountryData(obj){
 
+	var fundsData = 0;
+
+	var fundsStr = "";
+
+	if (obj.fundssecuredusd > obj.needforrecoveryusd){
+			fundsData = obj.fundssecuredusd - obj.needforrecoveryusd;
+			fundsStr = "Recovery funds surplus";
+	}
+
+	if (obj.fundssecuredusd < obj.needforrecoveryusd){
+			fundsData = obj.needforrecoveryusd - obj.fundssecuredusd;
+			
+			fundsStr = "Recovery funds deficit";
+	}
+	fundsData = formatCurrency(fundsData);
+
     $('#countryTitle').html(obj.country);   
-    $('#col-2-caption').html("funds secured");
-    $('#col-2-number').html(addCommas(obj.fundssecuredusd))
+    $('#col-2-caption').html(fundsStr);
+    $('#col-2-number').html(addCommas(fundsData))
     $('#col-3-caption').html("wave height");
     $('#col-3-number').html(obj.waveheightmaximumm+"m")
     $('#col-4-caption').html("Casualties");
@@ -1403,8 +1610,7 @@ function setCountryData(obj){
 	$("#col-4-graphic").html(htmlStr);
 
       drawAreaGraph(obj);
-
-      updateBarGraph(obj)  
+	  updateBarGraph(obj)  
 }
 
 function addCommas(nStr) {
@@ -1424,16 +1630,21 @@ function formatCurrency(numIn){
 	var strOut;
 		if (numIn > 1000000 && numIn < 1000000000){
 			strOut = numIn/1000000
-			strOut ="$"+numIn+"m";
-			return strOut;
+			strOut= (Math.round(strOut*100)/100).toFixed(2)
+			strOut ="$"+strOut+"m";
+
 		}
 
 		if (numIn > 1000000000){
 			strOut = numIn/1000000000
-			strOut ="$"+numIn+"bn";
-			return strOut;
+			strOut= (Math.round(strOut*100)/100).toFixed(2)
+			strOut ="$"+strOut+"bn";
+			
 		}
 
+
+
+	return strOut;
 	
 }
 
