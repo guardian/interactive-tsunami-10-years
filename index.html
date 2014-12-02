@@ -16,7 +16,7 @@ body {
 	font-family: "Guardian Agate Sans", Arial, sans-serif;
 	font-size: 10px;
 	color: #333;
-	background-color: #FFF;
+	background-color: #4b4b4b;
 }
 
 p{
@@ -75,6 +75,12 @@ h6{
 	color: #333;
 }
 
+#interactive-container{
+	width: 100%;
+	height: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
 #top-bar{
 	position:relative;
 	top:0px;
@@ -96,7 +102,7 @@ h6{
 	font-family: "Guardian Agate Sans","Helvetica",Arial, sans-serif;
     font-size: 1.5em;
     font-weight: 500;
-    color:#005689;
+    color:#EFEFEF;
     width: auto;
     padding-right:6px;
     margin: 7px 0 0 0;
@@ -116,18 +122,13 @@ h6{
 	
 	font-family:"Guardian Egyptian Headline", Georgia, serif;
 	font-size: 24px;
-	color: #005689;
+	color: #4bc6df;
 	width: auto;
 	display: inline-block;
 	margin-top: 3px;
 	margin-bottom: 5px;
-}
+	margin-left: 3px;
 
-
-
-#interactive-container{
-	width: 100%;
-	height: auto;
 }
 
 #topArea{
@@ -147,31 +148,38 @@ h6{
 }
 
 .country {
-    fill: #dbdbd8;
-    stroke: white;
+    fill: #767676;
+    stroke: #333;
     stroke-width: 0.25px;
 }
 
 
 .country-selected {
-    fill: #005689;
-    stroke: white;
+    fill: #4bc6df;
+    stroke: #333;
     stroke-width: 0.25px;
 }
 
 
 /* factbox graphics */
 .area {
-  fill: #FFF;
+  fill: #4bc6df;
   stroke-width: 0;
 }
 
+.axis path, .axis line {
+  fill: none;
+  stroke: #DCDCDC;
+  shape-rendering: crispEdges;
+}
+
+
 #col-4-graphic{
-	padding: 0 6px;
+	padding: 0 6px 0 0;
 }
 
 #areaGraphHolder svg {
-    background: rgba(0, 86, 137, 1);
+    background: none;
 }
 
 
@@ -180,7 +188,7 @@ h6{
 	height:48px;
 	width:100%;
 	margin: 0 0 2px 0;
-	background-color:#EFEFEF;
+	background-color:none;
 	clear:right;
 	float:left;
 
@@ -190,7 +198,7 @@ h6{
 .graphBarHolderInner{
 	position:relative;
 	height:46px;
-	background-color:#005689;
+	background-color:#4bc6df;
 	left:0px;
 	width:10px;
 
@@ -238,7 +246,7 @@ h6{
 	clear: right;
 	text-align: left;
 	width: 100%;
-	padding: 3px 10px 12px 10px;
+	padding: 3px 10px 12px 0;
 	margin: 0;
 	color: #bdbdbd;
 }
@@ -251,20 +259,20 @@ h6{
 	line-height: 1.2em;
 	font-weight:200;
 	text-align:left;
-	color:#767676;
-	padding: 3px 10px 3px 10px;
+	color:#EFEFEF;
+	padding: 3px 10px 3px 0;
 	clear: both;
 	/*border-bottom: 1px dotted #005689;*/
 }
 
 .small-col-header{
 	clear: right;
-    color: #005689;
+    color: #EFEFEF;
     float:left;
 	clear:right;
 	text-align: left;
 	position: relative;
-	left: 0;
+	left: 12px;
 	padding-top:3px;
     font-family: "Guardian Egyptian Headline",Georgia,serif;
     font-size: 2.2em;
@@ -408,7 +416,7 @@ h6{
 
 
 			#factbox-holder{
-				position: relative;
+				position: absolute;
 				top:0px;
 				left:0px;
 				float:left;
@@ -419,7 +427,7 @@ h6{
 				min-width:320px;
 				width:100%;
 				border-top: 1px solid #dcdcdc;
-				background-color: #FFF;
+				background-color:  rgba(0, 0, 0, 0.8);
 			}
 
 			.timeline{
@@ -740,8 +748,8 @@ h6{
 }
 
 
-
-@media only screen and (min-width : 600px) and (max-width : 1199px){
+/*and (max-width : 1260px)*/
+@media only screen and (min-width : 600px) {
 
 			#heatmap-key{
 				background-color: rgba(255, 255, 255, 1);
@@ -843,7 +851,7 @@ h6{
 				width: 100%;
 				float:left;
 				clear:right;
-				border-top: 1px solid #dcdcdc;
+				border-top: 1px solid #333;
 			}
 
 			.factbox-holder-col-left{
@@ -861,31 +869,38 @@ h6{
 
 			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
 				position: relative;
-				width:320px;
+				width:30%;
 				float:left;
 				padding: 0 10px;
 				border-right: 1px solid #dcdcdc;
 				height:auto;
 			}
+
+			.factbox-holder-col-center-right{
+				border-right:none;
+				
+			}
 			.factbox-holder-col-right{
 				border-right:none;
-				width:100%;
-				padding-right:20px;
+				width:99%;
+				margin:24px 0px;
+				padding:12px 0 36px 12px;
+				border-top: 1px solid #dcdcdc;
 			}
 
 			#factbox-holder{
-				position: relative;
+				position: absolute;
 				top:0px;
-				left:0px;
+				left:12px;
 				float:left;
 				clear:right;
-				margin:0 0 12px 3px;
+				margin:0 auto 0 12px;
 				padding-top:6px;
 				max-width: 1260px;
 				min-width:320px;
-				width:100%;
-				border-top: 1px solid #dcdcdc;
-				background-color: #FFF;
+				width:95%;
+				border-top: 1px solid #333;
+				background-color: rgba(0,0,0,0.6);
 			}
 
 			.timeline{
@@ -910,10 +925,10 @@ h6{
 
 
 
-@media only screen and (min-width : 1200px) {
-
+/*@media only screen and (min-width : 1200px) {
+/*
 #heatmap-key{
-	/*background-color: rgba(255, 255, 255, 1);*/
+	background-color: rgba(255, 255, 255, 1);
     clear: right;
     float: left;
     left: 0px;
@@ -1064,7 +1079,7 @@ h6{
 	display:inline;
 }
 
-}
+}*/
 }
 
 </style>
@@ -1337,7 +1352,7 @@ function upDateFromSelectFilters(e){
 
 function getDimensions() {
             var width = $('#mapView').width();
-            var ratio = 0.45;
+            var ratio = 0.8;
             return {
                 width: width,
                 height: width * ratio,
@@ -1347,11 +1362,15 @@ function getDimensions() {
 
 function drawMap(){
 
-	$("#mapView").empty();
 	var dimensions = getDimensions();
+
+	$('#factbox-holder').css("top", dimensions.height * 0.6+"px")
+
+	$("#mapView").empty();
+	
    // var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
     var scale = 100 * dimensions.scale;
-    var translate = [dimensions.width / 2, dimensions.height / 2];
+    var translate = [dimensions.width / 2, dimensions.height / 5];
     var center = [0, 0];
     
     if (isZoomed) {
@@ -1427,9 +1446,9 @@ function drawMap(){
 			        .attr('cy', function () { return projection([tsunamiLon, tsunamiLat])[1]; })
 			        .attr('r', 10)
 			        .attr('id', 'tsunami_Area_Bottom')
-			        .attr("fill", "#005689")
+			        .attr("fill", "#EFEFEF")
 			        .attr("fill-opacity","0.1")
-			        .attr("stroke", "#005689")
+			        .attr("stroke", "#EFEFEF")
 			        .attr("stroke-opacity","1")
 		            .attr("stroke-width", "3px");
 
@@ -1439,9 +1458,9 @@ function drawMap(){
 			        .attr('cy', function () { return projection([tsunamiLon, tsunamiLat])[1]; })
 			        .attr('r', 5)
 			        .attr('id', 'tsunami_Center')
-			        .attr("fill", "#005689")
+			        .attr("fill", "#EFEFEF")
 			        .attr("fill-opacity","1")
-			        .attr("stroke", "#005689")
+			        .attr("stroke", "#EFEFEF")
 			        .attr("stroke-opacity","0.1")
 		            .attr("stroke-width", "3px");
 
@@ -1462,7 +1481,7 @@ function drawCasualtiesChart (obj){
 	var htmlStr = "  ";
 
 
-	var svg16x40 = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path fill="#CCCCCC" d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
+	var svg16x40 = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path fill="#4bc6df" d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
 
 	for(var i = 0; i<(obj.casualties/100); i++){
 		htmlStr = htmlStr + svg16x40;
@@ -1507,30 +1526,51 @@ function drawAreaGraph(obj){
 		
 		console.log(obj.waveheightmaximumm * waveGraphUnit)
 
-		var lineData = [ { "x": 0,    "y": graphH}, 
-							{ "x": 30,  "y": (graphH-((obj.waveheightminimumm) * waveGraphUnit))},   
-                         { "x": 60,   "y": graphH-10}, 
-                         { "x": 90,   "y": (graphH-((obj.waveheightmaximumm-0.1) * waveGraphUnit))},
-                         { "x": 120,  "y": graphH}
-                       ];             
+		// var lineData = [ { "x": 0,    "y": graphH}, 
+		// 					{ "x": 30,  "y": (graphH-((obj.waveheightminimumm) * waveGraphUnit))},   
+  //                        { "x": 60,   "y": graphH-10}, 
+  //                        { "x": 90,   "y": (graphH-((obj.waveheightmaximumm-0.1) * waveGraphUnit))},
+  //                        { "x": 120,  "y": graphH}
+  //                      ];  
+
+
+  		var lineData = [ { "x": 0,    "y": 0}, 
+						 { "x": 30,  "y": ( ((obj.waveheightminimumm) * waveGraphUnit) )},   
+                         { "x": 60,   "y": 10}, 
+                         { "x": 90,   "y": ( ((obj.waveheightmaximumm-0.1) * waveGraphUnit) )},
+                         { "x": 120,  "y": 0}
+                     	];           
 		
+        console.log(lineData);             	
+
 		
         // svg
         var svg = d3.select("#areaGraphHolder").append("svg")
+
                 .attr("width", graphW)
                 .attr("height", graphH);
                         
         var area = d3.svg.area()
-            .interpolate("monotone")
-            .x(function(d)  {  return x(d.x); }).y0(0).y1(function(d) {  return y(d.y); });
+            .interpolate("monotone").x(function(d)  {  return x(d.x); }).y0(0).y1(function(d) {  return y(d.y); });
                         
         //
         var lineFunction = d3.svg.line()
+
+                
                        .x(function(d) { return d.x; })
                        .y(function(d) { return d.y; });                 
                         
         var x = d3.scale.linear().range([0, graphW]);
         var y = d3.scale.linear().range([0, graphH]);
+
+
+        var xAxis = d3.svg.axis()
+		    .scale(x)
+		    .orient("bottom");
+
+		var yAxis = d3.svg.axis()
+		    .scale(y)
+		    .orient("left");
 
         x.domain(d3.extent(lineData,  function(d) { return d.x; }));
         y.domain([0, d3.max(lineData, function(d) { return d.y; })]);
@@ -1538,7 +1578,10 @@ function drawAreaGraph(obj){
         svg.append("path")
             .attr("class", "area")
             .attr("fill-opacity","1")
-            .attr("d", area(lineData));
+            .attr("d", area(lineData))
+            .call(xAxis);
+
+            console.log(xAxis)
 
         // var linegraph = svg.append("path")
         //             .attr("d", lineFunction(lineData))
@@ -1595,15 +1638,15 @@ function layoutBarGraphCaptions (caption, captionTitle, bar){
 	if ($(caption).width() < $(bar).width() || $(captionTitle).width() < $(bar).width()){
             $(caption).css("margin-left", 3)
             $(captionTitle).css("margin-left", 3)
-            $(caption).css("color", "#DCDCDC")
-            $(captionTitle).css("color", "#DCDCDC")
+            $(caption).css("color", "#FFF")
+            $(captionTitle).css("color", "#FFF")
         }
 
      if ($(caption).width() > $(bar).width() || $(captionTitle).width() > $(bar).width()){
             $(caption).css("margin-left", 3+$(bar).width())
             $(captionTitle).css("margin-left", 3+$(bar).width())
-            $(caption).css("color", "#333")
-            $(captionTitle).css("color",  "#333")
+            $(caption).css("color", "#EFEFEF")
+            $(captionTitle).css("color",  "#EFEFEF")
         }
 }					
 
