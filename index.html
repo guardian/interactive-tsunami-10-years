@@ -105,13 +105,6 @@ h6{
   line-height: 1.8em;
 }
 
-#filter-block {
-	position: absolute;
-	top:18px;
-	right:6px;
-	color: #767676;
-}
-
 .styled-select {
    float: right;
    width: 231px;
@@ -183,12 +176,6 @@ h6{
 
 }
 
-#topArea{
-	margin-bottom:12px;
-}
-
-
-
 #mapView{
 	position: relative;
 	left:3px;
@@ -227,7 +214,8 @@ h6{
 
 
 #col-4-graphic{
-	padding: 0 6px 0 0;
+	width:100%;
+	margin: 0 0 0 auto;
 }
 
 #areaGraphHolder svg {
@@ -237,30 +225,28 @@ h6{
 
 .graphBarHolder{
 	position:relative;
-	height:48px;
+	height:180px;
 	width:100%;
 	margin: 0 0 2px 0;
-	background-color:none;
+	background-color:#666;
 	clear:right;
 	float:left;
-
-
 }
 
 .graphBarHolderInner{
-	position:relative;
-	height:46px;
+	position:absolute;
+	height:1px;
 	background-color:#4bc6df;
 	left:0px;
-	width:10px;
-
+	bottom: 0px;
+	width:100%;
 }
 
 #graphHolder{
 	position: relative;
-	width:100%;
+	width:96%;
 	margin:24px 0 36px 0;
-	padding:36px 12px 24px 0;
+	padding:36px 4% 24px auto;
 }
 
 .graphBarCaptionTopStack{
@@ -273,7 +259,6 @@ h6{
 	float:left;
 	clear:right;
 	width:auto;
-	
 	margin:3px 0 1px  3px;
 }
 .graphBarCaptionBottomStack{
@@ -288,33 +273,6 @@ h6{
     width: auto;
 	
 	margin:6px 0 0 3px;
-}
-
-.large-number{
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 200;
-	font-size: 7.2em;
-	float: left;
-	clear: right;
-	text-align: left;
-	width: 100%;
-	padding: 3px 10px 12px 0;
-	margin: 0;
-	color: #bdbdbd;
-}
-
-
-.number-caption{
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 400;
-	font-size: 2.2em;
-	line-height: 1.2em;
-	font-weight:200;
-	text-align:left;
-	color:#EFEFEF;
-	padding: 3px 10px 3px 0;
-	clear: both;
-	/*border-bottom: 1px dotted #005689;*/
 }
 
 .small-col-header{
@@ -338,7 +296,6 @@ h6{
 /* factbox graphics */
 
 
-/* Start responsive */
 
 
 
@@ -437,9 +394,9 @@ h6{
 
 			#mapView{
 				position: relative;
-				left:3px;
+				left:0px;
 				top:60px;
-				width: 100%;
+				width: 99%;
 				float:left;
 				clear:right;
 				border-top: 1px solid #333;
@@ -447,50 +404,32 @@ h6{
 
 			.factbox-holder-col-left{
 				position: relative;
-				width:100%;
+				width:96%;
 				height:48px;
 				float:left;
 				clear:right;
-				padding-right: 10px;
+				padding-right: 4%;
 				/*margin-bottom:100%;*/
 
 			}
 
-
-
-			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
-				position: relative;
-				width:47%;
-				float:left;
-				padding: 0 10px;
-				
-				height:auto;
-			}
-
-			.factbox-holder-col-center-right{
-				border-right:none;
-				border-left: 1px solid #dcdcdc;
-				
-			}
 			.factbox-holder-col-right{
-				
-				width:99%;
+				width:96%;
 				margin:24px 0px;
-				padding:12px 0 36px 12px;
+				padding:12px 2% 36px 2%;
 				border-top: 1px solid #dcdcdc;
 			}
 
 			#factbox-holder{
 				position: absolute;
-				top:0px;
-				left:12px;
-				float:left;
-				clear:right;
-				margin:0 auto 0 12px;
-				padding-top:6px;
+				top: 0px;
+				float: left;
+				clear: right;
+				margin: 0 auto 0 auto;
+				padding-top: 6px;
 				max-width: 1260px;
-				min-width:320px;
-				width:95%;
+				min-width: 300px;
+				width: 100%;
 				border-top: 1px solid #333;
 				background-color: rgba(0,0,0,0.6);
 			}
@@ -503,10 +442,14 @@ h6{
 				fill: #4bc6df;
 			}
 
+			.casualtyFigure-tourist{
+				fill: #FF6600;
+			}
+
 /*timeline player*/
 
 .progressContainer {
-    width: 100%;
+    width: 98%;
     height: 28px;
     position: absolute;
     /*border-top: 1px solid #eee;*/
@@ -615,167 +558,127 @@ h6{
 
 
 
-/*end timeline css */
+/* START RESPONSIVE */
+
+@media only screen and (min-width : 740px) {
+			#topArea{
+				margin-bottom:12px;
+			}
+
+			#filter-block {
+				position: absolute;
+				top:18px;
+				right:6px;
+				color: #767676;
+			}
+
+			#factbox-holder{
+				left:12px;
+			}
+
+			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+				position: relative;
+				width:47%;
+				float:left;
+				padding: 0 10px;
+				height:auto;
+			}
+
+			.factbox-holder-col-center-right{
+				border-right:none;
+				border-left: 1px solid #dcdcdc;	
+			}
+
+			.factbox-holder-col-right{
+				width:98%;
+			}
+
+			.large-number{
+				font-family: "Guardian Egyptian Headline", Georgia, serif;
+				font-weight: 200;
+				font-size: 7.2em;
+				float: left;
+				clear: right;
+				text-align: left;
+				width: 99.9%;
+				padding: 3px auto 12px 0;
+				margin: 0 0.1% 0 0;
+				color: #bdbdbd;
+			}
 
 
-
-
-/*@media only screen and (min-width : 1200px) {
-/*
-#heatmap-key{
-	background-color: rgba(255, 255, 255, 1);
-    clear: right;
-    float: left;
-    left: 0px;
-    padding: 0 0 3px 0px;
-    position: absolute;
-    top: 144px;
-    width: 40%;
+			.number-caption{
+				font-family: "Guardian Egyptian Headline", Georgia, serif;
+				font-weight: 400;
+				font-size: 2.2em;
+				line-height: 1.2em;
+				font-weight:200;
+				text-align:left;
+				color:#EFEFEF;
+				padding: 3px 10px 3px 0;
+				clear: both;
+				/*border-bottom: 1px dotted #005689;*/
+			}
 }
 
-#button-holder{
-	position: relative;
-	right:3px;
-	width: 100%;
-	float:left;
-	clear:right;
-  	text-align: center;
-	height:48px;	
+@media only screen and (max-width : 739px) {
+			#topArea{
+				margin-bottom:48px;
+			}
+
+			#filter-block {
+				position: absolute;
+				top:72px;
+				right:18px;
+				color: #767676;
+			}
+
+			#factbox-holder{
+				left:0px;
+			}
+
+			.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
+				position: relative;
+				width:96%;
+				margin: 0 2% 0 auto;
+				padding: 12px 0 24px 0;
+				height:auto;	
+			}
+
+			.factbox-holder-col-center-right{
+				border-right:none;
+				border-left: none;
+			}
+
+			.large-number{
+				font-family: "Guardian Egyptian Headline", Georgia, serif;
+				font-weight: 200;
+				font-size: 3.6em;
+				float: left;
+				clear: right;
+				text-align: left;
+				width: 98%;
+				padding: 3px auto 12px 0;
+				margin: 0;
+				color: #bdbdbd;
+			}
+
+
+			.number-caption{
+				font-family: "Guardian Agate Sans", Arial, sans-serif;
+				font-weight: 400;
+				font-size: 1.5em;
+				line-height: 1.2em;
+				font-weight:200;
+				text-align:left;
+				color:#EFEFEF;
+				padding: 3px 10px 3px 0;
+				clear: both;
+				/*border-bottom: 1px dotted #005689;*/
+			}
 }
+/* END RESPOSIVE */
 
-.buttonnav {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 0 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	overflow:hidden;
-	color: #FFFFFF;
-	background-color: #bdbdbd !important;
-	cursor:pointer;
-}
-
-.buttonnav-selected {
-    float: right;
-    width:auto;
-    min-width:80px;
-	height:25px;
-	border-radius: 16px;
-	text-align: center;
-	margin: 0 12px 0 0;
-	padding: 7px 9px 0 9px;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-size: 15px;
-	color: #FFFFFF;
-	cursor:pointer;
-}
-
-
-.copy-holder-top {
-    clear: right;
-	color: #005689;
-	float: left;
-	font-family: "Guardian Egyptian Headline",Georgia,serif;
-	font-size: 2.2em;
-	font-weight: 200;
-	line-height: 1.3em;
-	margin: 0px 0 12px 10px;
-	max-width: 940px;
-	min-width: 320px;
-	padding: 3px 0 0 0;
-	position: relative;
-	left: 0px;
-	height: 96px;
-	width: 100%;
-}
-
-.large-number-top {
-    border-right: 1px solid #005689;
-    color: #005689;
-    float: left;
-    font-family: "Guardian Egyptian Headline",Georgia,serif;
-    font-size: 10em;
-    font-weight: 200;
-  	padding: 0 10px 0 0;
-    text-align: left;
-    width: 225px;
-}
-
-#mapView {
-    
-    clear: right;
-    float: left;
-    left: 3px;
-    position: relative;
-    top: 0;
-    width: 100%;
-    border-top: 1px solid #dcdcdc;
-}
-
-.factbox-holder-col-left{
-	position: relative;
-	width:220px;
-	height:300px;
-	float:left;
-	clear:right;
-	padding-right: 10px;
-}
-
-
-
-.factbox-holder-col-right, .factbox-holder-col-center-left, .factbox-holder-col-center-right{
-	position: relative;
-	width:320px;
-	float:left;
-	clear:right;
-	border-left: 1px solid #dcdcdc;
-	height:320px;
-}
-
-
-#factbox-holder{
-	position: relative;
-	top:0px;
-	left:0px;
-	float:left;
-	clear:right;
-	margin:0 0 12px 6px;
-	max-width: 1260px;
-	min-width:320px;
-	width:100%;
-
-	background-color: #FFF;
-}
-
-.timeline{
-	
-	background-color: #fff;
-    clear: right;
-    float: left;
-    max-width: 1260px;
-    min-width: 320px;
-    padding: 0 0 12px;
-    position: relative;
-    width: 100%;
-    top:0px;
-    left: 0px;
-    margin-left:-15px;
-
-#drop-down-holder{
-	position:relative;
-	top:24px;
-	width:90%;
-	padding:24px 0 0 0;
-	display:inline;
-}
-
-}*/
-}
 
 </style>
 
@@ -804,9 +707,7 @@ h6{
 	<body>
 					
 
-			<div id="mapView"> 
-
-			</div>
+			
 	<div id='interactive-container'>
 		<div id="topArea">	
 			<div id="top-bar"></div>
@@ -818,7 +719,9 @@ h6{
 					 <div id="filter-label">Show:</div>
 				</div>	
 			</div>
+<div id="mapView"> 
 
+			</div>
 			
 				<div class="progressContainer">
 						<div class="playButton" data-status="paused"></div>
@@ -858,20 +761,8 @@ h6{
 					
 									<div class="graphBarHolder"id="bar_Value_C">
 										<div class="graphBarHolderInner" id="bar_Value"></div>
-										<div class="graphBarCaptionTopStack"  id="cap_Value">Value of damages USD</div>
+										<div class="graphBarCaptionTopStack"  id="cap_Value"></div>
 										<div class="graphBarCaptionBottomStack"  id="bar_Value_B"> </div>
-									</div>
-									
-									<div class="graphBarHolder" id="bar_Cost_C">
-										<div class="graphBarHolderInner" id="bar_Cost"></div>
-										<div class="graphBarCaptionTopStack"  id="cap_Cost">Cost of recovery USD</div>
-										<div class="graphBarCaptionBottomStack"  id="bar_Cost_B"> </div>	
-									</div>
-									
-									<div class="graphBarHolder" id="bar_Funds_C">
-										<div class="graphBarHolderInner" id="bar_Funds"></div>
-										<div class="graphBarCaptionTopStack"  id="cap_Funds">Recovery funds secured USD</div>
-										<div class="graphBarCaptionBottomStack"  id="bar_Funds_B"> </div>
 									</div>
 
 							</div>
@@ -933,17 +824,28 @@ iframeMessenger.enableAutoResize();
 
 
 
-
+var winW, isMobile;
 
 
 // from http://www.scienzagiovane.unibo.it/English/tsunami/5-tsunami-2004.html
 var tsunamiLat = 3.19; var tsunamiLon = 96;
 
 
+	
+$(window).resize(function() {
+        winW = $(window).width();
+        checkWin ();
+});
+
+
 $(function() {
 	$(document).ready(function() {		
 		initData();
 	})	
+
+	winW = $(window).width();
+
+	checkWin ();
 
 	if(!Array.indexOf) {// IE fix
 		Array.prototype.indexOf = function(obj) {
@@ -958,6 +860,12 @@ $(function() {
 
 
 });
+
+function checkWin(){
+
+	winW > 739 ? isMobile = false : isMobile = true; 
+	console.log(isMobile);
+}
 
 
 function initData() {
@@ -982,7 +890,6 @@ function handleResponse(data) {
 			_.each(dataset, function(item){
 
 				if (!isNaN(item.casualties)){
-					console.log(item.casualties)
 					totalCasualties = totalCasualties + item.casualties;
 				}
 				
@@ -996,7 +903,7 @@ function handleResponse(data) {
 
 
 function buildView(){
-
+	checkWin ();
 	populateDropDown();
 	drawMap();
 	var limtedResize = _.debounce(render, 200);
@@ -1068,13 +975,11 @@ function populateDropDown(){
 }
 
 function upDateFromSelectFilters(e){
-	 console.log(e)
+
     var newSort =  e.currentTarget.value;
-
-
 	d3.select("#IND").classed("country-selected", false);
- 	var newClip = "#"+newSort;
 
+ 	var newClip = "#"+newSort;
  	var newClip = d3.select(newClip)
    	d3.select(".country-selected").classed("country-selected", false);
    	newClip.classed("country-selected", true);
@@ -1093,6 +998,9 @@ function upDateFromSelectFilters(e){
 function getDimensions() {
             var width = $('#mapView').width();
             var ratio = 0.8;
+
+            
+
             return {
                 width: width,
                 height: width * ratio,
@@ -1102,12 +1010,16 @@ function getDimensions() {
 
 function drawMap(){
 
+	var factBoxRatio
+
+            if(!isMobile){ factBoxRatio = 0.8} else { factboxRatio = 0.6 }
+
 	var dimensions = getDimensions();
 
 
-	$('.progressContainer').css("top", dimensions.height * 0.6+"px")
+	$('.progressContainer').css("top", (dimensions.height * factBoxRatio)+"px")
 
-	var factBoxNewTop = (dimensions.height * 0.6) + $('.timeline').outerHeight();
+	var factBoxNewTop = (dimensions.height * factBoxRatio) + $('.progressContainer').outerHeight();
 
 	$('#factbox-holder').css("top", factBoxNewTop+"px")
 
@@ -1207,9 +1119,7 @@ function drawMap(){
 			        .attr("fill-opacity","1")
 			        .attr("stroke", "#EFEFEF")
 			        .attr("stroke-opacity","0.1")
-		            .attr("stroke-width", "3px");
-
-		    console.log("CHANGE")        
+		            .attr("stroke-width", "3px");  
 
 
 	        addListeners();
@@ -1234,10 +1144,25 @@ function drawCasualtiesChart (obj){
 
 	var htmlStr = "  ";
 	var svg16x40; 
-	//if (obj.casualties = "<10") { }
+	var objTouristCount = obj.touristcasualties/200;
 	var objCount = obj.casualties/200;
 	var totalCount = totalCasualties/200
+
+	if (obj.casualties == "<10") 
+		{ 
+			objTouristCount = 0;
+			objCount = 10/200;
+		}
+	
 	var k = 0;
+
+	for (n = 0; n < objTouristCount; n++){
+		svg16x40 = '<svg version="1.1" class="casualtyFigure-tourist" id="casualtyFigure_'+k+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
+
+		htmlStr += svg16x40;
+	}
+
+
 	for (k = 0; k < objCount; k++){
 		svg16x40 = '<svg version="1.1" class="casualtyFigure-selected" id="casualtyFigure_'+k+'" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="40px" viewBox="0 0 15 40" enable-background="new 0 0 15 40" xml:space="preserve"><path d="M7.5,11.091c2.525,0,4.572-2.047,4.572-4.572c0-2.524-2.047-4.571-4.572-4.571 c-2.523,0-4.572,2.047-4.572,4.571C2.928,9.044,4.977,11.091,7.5,11.091z M7.5,11.451c-3.637,0-6.584,1.474-6.584,3.292 c0,0.04,0.01,0.079,0.012,0.119l2.316,20.104C3.349,36.098,5.211,37,7.5,37s4.15-0.902,4.256-2.034l2.315-20.104 c0.004-0.041,0.013-0.079,0.013-0.119C14.084,12.925,11.136,11.451,7.5,11.451z"/></svg>'; 
 
@@ -1274,10 +1199,9 @@ function drawAreaGraph(obj){
 
 		$("#areaGraphHolder").empty();
 
-
         var graphW = $("#areaGraphHolder").width();
         // var graphW = 300; 
-        var graphH = graphW*0.4;
+        var graphH = 180;
 		var waveGraphUnit = 0;
 
 		var minWave = obj.waveheightminimumm;
@@ -1290,7 +1214,11 @@ function drawAreaGraph(obj){
 		  		}
 		})
 		
-		
+		var svg = d3.select("#areaGraphHolder").append("svg")
+                                   .attr("width", graphW)
+                                   .attr("height", graphH);
+
+
 		var lineData = [ 		 
 					{ "x": 0,    "y": graphH},  
 					{ "x": (graphW/5)*1,   "y": graphH-(minWave * waveGraphUnit)},
@@ -1300,9 +1228,7 @@ function drawAreaGraph(obj){
                 ];             
 
         // svg
-        var svg = d3.select("#areaGraphHolder").append("svg")
-                                   .attr("width", graphW)
-                                   .attr("height", graphH);
+        
                         
         var area = d3.svg.area()
             .interpolate("monotone")
@@ -1325,49 +1251,42 @@ function drawAreaGraph(obj){
             .attr("class", "area")
             .attr("d", area(lineData));
 
-
-upDateArea(obj)
-
+	upDateArea(obj)
 }
 
 
 function updateBarGraph(obj){
-
 	var maxVal = 0;
+	var maxValAll = 0;
 	var unitVal = 0;
 
-		 	if (!isNaN(obj.fundssecuredusd) && obj.fundssecuredusd > maxVal)
-		 	{ maxVal = obj.fundssecuredusd }
+			_.each(dataset, function(item){
 
-		 	if (!isNaN(obj.needforrecoveryusd) && obj.needforrecoveryusd > maxVal)
-		 	{ maxVal = obj.needforrecoveryusd }
+				if (item.valueofdamagesusd != ""){
+					console.log(item.valueofdamagesusd)
+					maxValAll = maxValAll + item.valueofdamagesusd;
+				}
+				
+			})
+		 	
+			console.log(formatCurrency(maxValAll))
 
 		 	if (!isNaN(obj.valueofdamagesusd) && obj.valueofdamagesusd > maxVal)
 		 	{ maxVal = obj.valueofdamagesusd }	
 
 		 	maxVal=maxVal - 12;
+			unitVal = ($("#bar_Value_C").height()/maxValAll)
 
-			unitVal = ($(".graphBarHolder").width()/maxVal)
-
-			var fundsVal = (obj.fundssecuredusd * unitVal);
-			var needsVal = (obj.needforrecoveryusd * unitVal);
+			
 			var damagesVal = (obj.valueofdamagesusd * unitVal);
-
-			d3.select('#bar_Value').transition().delay(750).attr("offsetWidth",damagesVal+"px"+"px");
-
-			$('#bar_Funds').css("width",fundsVal+"px");
-			$('#bar_Cost').css("width",needsVal+"px");
-			$('#bar_Value').css("width",damagesVal+"px");
-
-			$('#bar_Funds_B').html(formatCurrency(obj.fundssecuredusd))	
-			$('#bar_Cost_B').html(formatCurrency(obj.needforrecoveryusd))	
+			$('#bar_Value').css("height", damagesVal+"px");
+			$('#cap_Value').html("Financial cost of tsunami damage in "+obj.country);
 			$('#bar_Value_B').html(formatCurrency(obj.valueofdamagesusd))		
 
-			layoutBarGraphCaptions ($('#bar_Funds_B'), $('#cap_Funds'), $('#bar_Funds'));
-			layoutBarGraphCaptions ($('#bar_Cost_B'), $('#cap_Cost'), $('#bar_Cost'));
 			layoutBarGraphCaptions ($('#bar_Value_B'), $('#cap_Value'), $('#bar_Value'));	        
 
 }
+
 
 function layoutBarGraphCaptions (caption, captionTitle, bar){
 
@@ -1391,29 +1310,24 @@ function layoutBarGraphCaptions (caption, captionTitle, bar){
 
 function setCountryData(obj){
 
-	var fundsData = 0;
-
-	var fundsStr = "";
-
-	if (obj.fundssecuredusd > obj.needforrecoveryusd){
-			fundsData = obj.fundssecuredusd - obj.needforrecoveryusd;
-			fundsStr = "Recovery funds surplus";
-	}
-
-	if (obj.fundssecuredusd < obj.needforrecoveryusd){
-			fundsData = obj.needforrecoveryusd - obj.fundssecuredusd;
-			
-			fundsStr = "Recovery funds deficit";
-	}
-	fundsData = formatCurrency(fundsData);
+	var currencyStr = formatCurrency(obj.valueofdamagesusd)
+	var totalCasualties;
+		if( obj.casualties != "<10")
+			{
+				totalCasualties = obj.casualties + obj.touristcasualties
+			} 
+		else
+			{ 
+				totalCasualties = obj.casualties
+			}
 
     $('#countryTitle').html(obj.country);   
-    $('#col-2-caption').html(fundsStr);
-    $('#col-2-number').html(addCommas(fundsData))
+    $('#col-2-caption').html("Cost of damages");
+    $('#col-2-number').html(currencyStr)
     $('#col-3-caption').html("Wave height");
     $('#col-3-number').html(obj.waveheightminimumm+"–"+obj.waveheightmaximumm+"m")
     $('#col-4-caption').html("Casualties");
-    $('#col-4-number').html(addCommas(obj.casualties))
+    $('#col-4-number').html(addCommas(totalCasualties))
 
 
 	 updateBarGraph(obj)  
