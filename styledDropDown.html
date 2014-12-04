@@ -1,0 +1,97 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="http://pasteup.guim.co.uk/0.0.5/css/fonts.pasteup.min.css"/>
+<style>
+#filter-label {
+  float: right;
+  padding-right: 10px;
+  font-weight: 400;
+  font-family: "Guardian Agate Sans", Arial, sans-serif;
+  line-height: 2.2em;
+}
+
+#filter-block {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  color: #767676;
+}
+
+.styled-select {
+  float: right;
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url("images/dropdown.gif") no-repeat 208px #fff;
+   border: 1px solid #767676;
+   border-radius: 17px;
+}
+
+.styled-select:hover {
+   background: url("images/dropdown-white.png") no-repeat 208px #767676;
+}
+
+.styled-select:hover #filter {
+  color: #fff;
+}
+
+#filter {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   font-family: "Guardian Agate Sans", Arial, sans-serif;
+   line-height: 1.3em;
+   color: #767676;
+   font-weight: 600;
+   cursor: pointer;
+   }
+
+#filter option {
+   padding: 10px;
+   border-bottom: 1px solid #767676;
+   font-weight: 400;
+   color: #767676;
+   background: #fff;
+   }
+
+
+</style>
+
+</head>
+
+
+<body>
+<div id="filter-block">
+      <div class="styled-select">
+     <select id="filter">
+      <option value="show all">All media</option>
+      <option value="advertising">Advertising</option>
+      <option value="broadcasting">Broadcasting</option>
+      <option value="music">Music</option>
+      <option value="politics">Politics</option>
+      <option value="print/publishing">Print/publishing</option>
+      <option value="production">Production</option>
+      <option value="public relations">Public relations</option>
+      <option value="talent">Talent</option>
+      <option value="technology/social">Technology/social</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="under 40">Under 40</option>
+      <option value="ivy league or oxbridge">Ivy League or Oxbridge</option>
+    </select>
+  </div>
+    <p id="filter-label">Show:</p>
+</div>
+</body>
+    
+
+    
+    
+</html>  
