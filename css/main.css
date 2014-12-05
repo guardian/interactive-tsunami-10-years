@@ -1,560 +1,661 @@
-/*
-
-FONT FAMILIES FROM GU STYLESHEET
-<link rel="stylesheet" href="http://pasteup.guim.co.uk/0.0.5/css/fonts.pasteup.min.css"/>
-
-"Guardian Egyptian Text", Georgia, serif;
-"Guardian Egyptian Headline", Georgia, serif;
-"Guardian Sans Text", Georgia, serif;
-"Guardian Sans Headline", Georgia, serif;
-"Guardian Titlepiece", Georgia, serif;
-"Guardian Agate Sans", Arial, sans-serif;
-"Guardian Compact", Georgia, serif;
-
-*/
-
-html, body {
-	padding: 0;
-	margin: 0;
+/* reset */
+select:focus {
+	outline:none
 }
 
-#facewall-container {
-
-	width: 100%;
-	height: auto;
+body {
+	font-family:"Guardian Agate Sans",Arial,sans-serif;
+	font-size:10px;
+	color:#333;
+	background-color:#4b4b4b
 }
 
-
-#wc-shirts-2014-container {
-	position: relative;
-	width: 100%;
-	height: auto;
-    background-color: #fff;
-    color: #777777;
-    font-size: 1.3rem;
-    line-height: 2rem;
-    font-weight: normal;
-    overflow: hidden;
+p {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:200;
+	font-size:1.8em;
+	line-height:1.5em;
+	color:#767676
 }
 
-#wc-shirts-2014-header {
-	position: relative;
-	width: 100%;
-	height: 100px;
+h2 {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:400;
+	font-size:3em;
+	line-height:1.2em;
+	color:#333
 }
 
-#wc-shirts-2014-header h2 {
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 500;
-	font-size: 25px;
-	padding: 10px 10px;
+h3 {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:400;
+	font-size:2.4em;
+	line-height:1.05em;
+	color:#333
 }
 
-#wc-shirts-2014-header h3 {
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-weight: 500;
-	font-size: 14px;
-	padding: 10px 10px;
-	float: right;
-	color: #333;
-	display: none;
-}
-
-#wc-shirts-2014-loading {
-	color: #fff;
-	padding: 10px 10px;
-}
-
-#wc-shirts-2014-grid {
-	margin-top: 20px;
-	position: relative;
-	width: 100%;
-	height: auto;
-	padding:0;
-	overflow: hidden;
-	list-style-type: none;
+h4 {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:400;
+	font-size:2.4em;
 	text-align:center;
+	line-height:1.5em;
+	color:#767676
 }
 
-.wc-shirts-2014-cell {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	bottom: 0px;
-	right: 0px;
+h5 {
+	display:inline!important;
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:500;
+	font-size:2.2em;
+	text-align:left;
+	line-height:1.2em;
+	padding:0 0 12px;
+	margin:0;
+	color:#333
 }
 
-.wc-shirts-2014-cell-image {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 100%;
+h6 {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:400;
+	font-size:1.8em;
+	text-align:left;
+	line-height:1.5em;
+	padding:0;
+	margin:0;
+	color:#333
 }
 
-.wc-shirts-2014-cell-num {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 15px;
-	height: 15px;
-	font-size: 15px;
-	padding: 3px 5px 7px 5px;
-	text-align: center;
-	/*font-family: "Guardian Agate Sans", Arial, sans-serif;*/
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 500;
-
+#interactive-container {
+	width:100%;
+	height:auto;
+	-webkit-font-smoothing:antialiased
 }
 
-#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-	position: relative;
-	display: inline-block;
-	width: 48%;
-	padding-bottom: 48%;
-	font-size: 1em;
-	background:#fff;
-	margin-left: auto;
-	margin-right:4%;
-	margin-bottom:4%;
-	cursor: pointer;
-	background: #333;
-	vertical-align: top;
+#top-bar {
+	position:relative;
+	top:0;
+	left:0;
+	height:4px;
+	width:70px;
+	background-color:#4bc6df
 }
 
-#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:not(.wc-shirts-2014-expanded):hover img {
-	opacity:0.6;
-	filter:alpha(opacity=60); /* For IE8 and earlier */
+/* drop down */
+#filter-label {
+	float:right;
+	top:15px;
+	padding:0 12px 3px 0;
+	font-weight:400;
+	font-size:18px;
+	font-family:"Guardian Agate Sans",Arial,sans-serif;
+	line-height:1.8em
 }
 
-#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even) {
-	margin-right: auto;
+.styled-select {
+	float:right;
+	width:231px;
+	height:34px;
+	padding-left:9px;
+	overflow:hidden;
+	background:url(images/dropdown.gif) no-repeat 208px #fff;
+	border:none;
+	border-radius:17px
 }
 
-#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	bottom: 0;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-bottom-color: #ddd;
-	border-width: 30px;
-	left: 50%;
-	margin: 0 0 -18% -30px;
+.styled-select:hover {
+	background:url(images/dropdown-white.png) no-repeat 208px #767676
 }
 
-
-#wc-shirts-2014-info-panel {
-	position: static;
-	width: 100%;
-	color: #fff;
-	height: 0;
-	background: #ddd;
-	overflow: hidden;
-	opacity:0;
-	filter:alpha(opacity=0); /* For IE8 and earlier */
-
+.styled-select:hover #filter-dropdown {
+	color:#fff
 }
 
-#wc-shirts-2014-info-dummy {
-	position: static;
-	width: 100%;
-	color: #fff;
-	height: 0;
-	background: #eee;
-	overflow: hidden;
-	opacity:0;
-	filter:alpha(opacity=0); /* For IE8 and earlier */
-    
+#filter-dropdown {
+	background:transparent;
+	width:268px;
+	padding:5px;
+	font-size:16px;
+	line-height:1;
+	border:0;
+	border-radius:0;
+	height:34px;
+	-webkit-appearance:none;
+	font-family:"Guardian Agate Sans",Arial,sans-serif;
+	line-height:1.3em;
+	color:#767676;
+	font-weight:600;
+	cursor:pointer
 }
 
-#wc-shirts-2014-info-panel-inner {
-	position: relative;
-	width: 100%;
-	height: auto;
+#filter-dropdown option {
+	padding:10px;
+	border-bottom:1px solid #767676;
+	font-weight:400;
+	color:#767676;
+	background:#fff
 }
 
-#wc-shirts-2014-close-button {
-	position: absolute;
-	width: 27px;
-	height: 27px;
-	top: 20px;
-	right: 25px;
+/* drop down end */
+#top-header {
+	position:absolute;
+	float:left;
+	clear:right;
+	top:12px;
+	left:6px;
+	width:auto
+}
+
+#top-header h1 {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-size:24px;
+	color:#4bc6df;
+	width:auto;
+	display:inline-block;
+	margin-top:3px;
+	margin-bottom:5px;
+	margin-left:3px
+}
+
+#mapView {
+	position:relative;
+	left:3px;
+	top:3px;
+	width:100%;
+	float:left;
+	clear:right;
+	border-top:1px solid #dcdcdc
+}
+
+#tsunamiGraphic {
+	position:absolute;
+	top:60px;
+	width:100%;
+	height:900px;
+	background-image: url("../images/background1.png");
+	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.country {
+	fill:#767676;
+	stroke:#333;
+	stroke-width:.25px
+}
+
+.country-selected {
+	fill:#4bc6df;
+	stroke:#333;
+	stroke-width:.25px
+}
+
+/* factbox graphics */
+.area {
+	fill:#4bc6df;
+	stroke-width:0
+}
+
+.axis path,.axis line {
+	fill:none;
+	stroke:#DCDCDC;
+	shape-rendering:crispEdges
+}
+
+#col-4-graphic {
+	width:100%;
+	margin:0 0 0 auto
+}
+
+#areaGraphHolder svg {
+	background:none
+}
+
+.graphBarHolder {
+	position:relative;
+	height:180px;
+	width:100%;
+	margin:0 0 2px;
+	background-color:#666;
+	clear:right;
+	float:left
+}
+
+.graphBarHolderInner {
+	position:absolute;
+	height:1px;
+	background-color:#4bc6df;
+	left:0;
+	bottom:0;
+	width:100%
+}
+
+#graphHolder {
+	position:relative;
+	width:96%;
+	margin:24px 0 36px;
+	padding:36px 4% 24px auto
+}
+
+.graphBarCaptionTopStack {
+	font-family:"Guardian Egyptian Headline","Georgia",Georgia,serif;
+	font-weight:400;
+	font-size:1.3em;
+	line-height:.9em;
+	position:absolute;
+	top:0;
+	float:left;
+	clear:right;
+	width:auto;
+	margin:3px 0 1px 3px
+}
+
+.graphBarCaptionBottomStack {
+	clear:right;
+	float:left;
+	font-family:"Guardian Egyptian Headline","Georgia",Georgia,serif;
+	font-size:2.7em;
+	font-weight:400;
+	line-height:1.2em;
+	position:absolute;
+	top:9px;
+	width:auto;
+	margin:6px 0 0 3px
+}
+
+.small-col-header {
+	clear:right;
+	color:#EFEFEF;
+	float:left;
+	clear:right;
+	text-align:left;
+	position:relative;
+	left:12px;
+	padding-top:3px;
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-size:2.2em;
+	font-weight:700;
+	height:auto;
+	line-height:1.2em
+}
+
+/* factbox graphics */
+#heatmap-key {
+	background-color:rgba(255,255,255,1);
+	clear:right;
+	float:left;
+	left:0;
+	padding:24px 0 3px 6px;
+	position:relative;
+	top:0;
+	width:100%
+}
+
+#button-holder {
+	position:relative;
+	left:3px;
+	top:3px;
+	width:100%;
+	float:left;
+	clear:right;
+	text-align:center;
+	padding-top:23px;
+	height:auto
+}
+
+.buttonnav {
+	float:right;
+	width:auto;
+	min-width:80px;
+	height:25px;
+	border-radius:16px;
+	text-align:center;
+	margin:0 12px 12px 0;
+	padding:7px 9px 0;
+	font-family:"Guardian Agate Sans",Arial,sans-serif;
+	font-size:15px;
+	overflow:hidden;
+	color:#FFF;
+	background-color:#bdbdbd!important;
+	cursor:pointer
+}
+
+.buttonnav-selected {
+	float:right;
+	width:auto;
+	min-width:80px;
+	height:25px;
+	border-radius:16px;
+	text-align:center;
+	margin:0 12px 12px 0;
+	padding:7px 9px 0;
+	font-family:"Guardian Agate Sans",Arial,sans-serif;
+	font-size:15px;
+	color:#FFF;
+	cursor:pointer
+}
+
+.copy-holder-top {
+	clear:right;
+	color:#005689;
+	float:left;
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-size:2.2em;
+	font-weight:200;
+	left:0;
+	line-height:1.3em;
+	margin:0 0 12px;
+	border-left:1px solid #005689;
+	padding:3px 0 0 10px;
+	position:relative;
+	width:450px;
+	height:192px;
+	background-color:#FFF
+}
+
+.large-number-top {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:200;
+	font-size:10em;
+	float:left;
+	text-align:left;
+	padding:0 10px 0 0;
+	width:225px;
+	color:#005689
+}
+
+#mapView {
+	position:relative;
+	left:0;
+	top:60px;
+	width:99%;
+	float:left;
+	clear:right;
+	border-top:1px solid #333
+}
+
+.factbox-holder-col-left {
+	position:relative;
+	width:96%;
+	height:48px;
+	float:left;
+	clear:right;
+	padding-right:4%
+/*margin-bottom:100%;*/
+}
+
+.factbox-holder-col-right {
+	width:96%;
+	margin:24px 0;
+	padding:12px 2% 36px;
+	border-top:1px solid #dcdcdc
+}
+
+#factbox-holder {
+	position:absolute;
+	top:0;
+	float:left;
+	clear:right;
+	margin:0 auto;
+	padding-top:6px;
+	max-width:1260px;
+	min-width:300px;
+	width:100%;
+	border-top:1px solid #333;
+	background-color:rgba(0,0,0,0.6)
+}
+
+.casualtyFigure {
+	fill:#767676
+}
+
+.casualtyFigure-selected {
+	fill:#4bc6df
+}
+
+.casualtyFigure-tourist {
+	fill:#F60
+}
+
+/*timeline player*/
+.timeline {
+	position:absolute;
+	height:auto;
+	width:100%
+}
+
+.progressContainer {
+	position:relative;
+	width:98%;
+	height:36px;
+	left:0;
+	border-top:1px solid #eee;
+	padding-top:12px;
+	background-color:#000
+}
+
+.playButton {
+	width:32px;
+	height:32px;
+	border-radius:99999px;
+	background:#333;
+	position:absolute;
 	cursor:pointer;
-	background-image: url("../images/close_333_20.png")
+	left:3px
 }
 
-.wc-shirts-2014-nav-button {
-	position: absolute;
-	top: 20px;
-	cursor:pointer;
-	width: 27px;
-	height: 27px;
-	cursor: pointer;
+.playButton[data-status=paused]:before {
+	content:'';
+	position:absolute;
+	display:block;
+	width:0;
+	height:0;
+	border-style:solid;
+	border-width:.4em 0 .4em .96em;
+	border-color:transparent transparent transparent #f1f1f1;
+	-moz-transform:scale(0.99999);
+	top:50%;
+	left:0;
+	margin-top:-.4em;
+	margin-left:1.2em
 }
 
-.wc-shirts-2014-nav-button:hover {
-	opacity:0.7;
-	filter:alpha(opacity=70); /* For IE8 and earlier */
+.playButton[data-status=playing]:before {
+	content:'';
+	position:absolute;
+	display:block;
+	height:13px;
+	width:2px;
+	border-right:4px solid;
+	border-left:4px solid;
+	border-color:#f1f1f1;
+	left:11px;
+	top:10px
 }
 
-#wc-shirts-2014-nav-left {
-	left: 20px;
-	background-image: url("../images/left_arrow_65_square.png");
+.playButton:hover {
+	background:#4cc5de
 }
 
-#wc-shirts-2014-nav-right {
-	left: 75px;
-	background-image: url("../images/right_arrow_65_square.png");
+.playButton:hover[data-status=paused]:before {
+	border-color:transparent transparent transparent #333
 }
 
-#wc-shirts-2014-info-contents {
-	position: relative;
-	width: 100%;
-	height: auto;
-	text-align: left;
+.playButton:hover[data-status=playing]:before {
+	border-color:#333
 }
 
-#wc-shirts-2014-info-heading {
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: normal;
-	font-size: 30px;
-	color:#10793d;
-	margin: 0 20px 0 20px;
+.rangeContainer {
+	margin-left:52px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin-right:18px;
+	top:7px;
+	position:relative
 }
 
-#wc-shirts-2014-info-subheading {
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: normal;
-	font-size: 18px;
-	padding-top: 10px;
-	color: #999;
-	margin: 0 20px 0 20px;
+#slider-range {
+	border-radius:0!important;
+	height:6px;
+	background:#EFEFEF;
+	border:1px solid #dcdcdc;
+	margin-top:6px
 }
 
-#wc-shirts-2014-info-description {
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.2em;
-	text-align: left;
-	margin: 0 20px 0 20px;
-	color: #666;
-	display: block;
-	max-width: 500px;
-	padding: 20px 0 20px 0;
+#slider-range .noUi-handle {
+	border-radius:50%!important;
+	margin:1px 0 4px;
+	height:20px;
+	width:20px;
+	background-color:#4bc6df!important;
+	box-shadow:none;
+	border:none;
+	top:-10px;
+	left:-10px;
+	cursor:pointer
 }
 
-#wc-shirts-2014-info-main-image-container {
-	padding-top: 65px;
-	width: 100%;
-	display: inline-block;
-	vertical-align: top;
+#slider-range .noUi-handle:after,.element-interactive #slider-range .noUi-handle:before {
+	display:none!important;
+	content:'';
+	background-color:#4cc5de!important
 }
 
-#wc-shirts-2014-info-text-container {
-	width: 100%;
-	display: inline-block;
-	padding-top: 20px;
+.noUi-handle:before,.noUi-handle:after {
+	background:none!important
 }
 
-.wc-shirts-2014-info-main-image {
-	width: 100%;
-	-ms-transform: scale(0.1,0.1); /* IE 9 */
--webkit-transform: scale(0.1,0.1); /* Chrome, Safari, Opera */
-transform: scale(0.1,0.1);
-opacity:0;
-filter:alpha(opacity=0); /* For IE8 and earlier */
+#currentSliderInput {
+	padding-top:3px;
+	padding-bottom:3px;
+	margin-top:10px;
+	font-size:14px;
+	font-weight:400;
+	text-align:justify;
+	border-top:1px solid;
+	border-bottom:1px solid;
+	border-color:#DFDFDF
 }
 
-#wc-shirts-2014-close-button:hover {
-	opacity:0.7;
-	filter:alpha(opacity=70); /* For IE8 and earlier */
+/*end timeline css 
+
+
+
+
+/* START RESPONSIVE */
+@media only screen and (min-width : 740px) {
+#topArea {
+	margin-bottom:12px
 }
 
-.wc-shirts-2014-close-link {
-	display: inline-block;
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	color: #005689;
-	width: 27px;
-	height: 27px;
-	cursor: pointer;
-	background-image: url("../images/up_arrow_65_square.png");
-	margin-bottom: 20px;
+#filter-block {
+	position:absolute;
+	top:18px;
+	right:6px;
+	color:#767676
 }
 
-.wc-shirts-2014-close-link:hover {
-	opacity:0.7;
-	filter:alpha(opacity=70); /* For IE8 and earlier */
+#factbox-holder {
+	left:12px
 }
 
-
-#wc-shirts-2014-info-shirts .wc-shirts-2014-info-shirt-image:nth-of-type(even) {
-	margin-left: 4%;
+.factbox-holder-col-right,.factbox-holder-col-center-left,.factbox-holder-col-center-right {
+	position:relative;
+	width:47%;
+	float:left;
+	padding:0 10px;
+	height:auto
 }
 
-#wc-shirts-2014-info-shirts .wc-shirts-2014-info-year {
-
-	font-family: "Guardian Egyptian Headline", Georgia, serif;
-	font-weight: 500;
-	font-size: 20px;
-	color:#10793d;
-	position: absolute;
-	top: 42%;
-	width: 100%;
-	display: block;
-	text-align: center;
+.factbox-holder-col-center-right {
+	border-right:none;
+	border-left:1px solid #dcdcdc
 }
 
-#wc-shirts-2014-info-shirts .wc-shirts-2014-info-host {
-
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-weight: bold;
-	font-size: 14px;
+.factbox-holder-col-right {
+	width:98%
 }
 
-#wc-shirts-2014-info-shirts .wc-shirts-2014-info-progress {
-
-	font-family: "Guardian Agate Sans", Arial, sans-serif;
-	font-weight: normal;
-	font-size: 14px;
+.large-number {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:200;
+	font-size:7.2em;
+	float:left;
+	clear:right;
+	text-align:left;
+	width:99.9%;
+	padding:3px auto 12px 0;
+	margin:0 .1% 0 0;
+	color:#bdbdbd
 }
 
-.wc-shirts-2014-info-shirt-image {
-	display: inline-block;
-	width: 45%;
+.number-caption {
+	font-family:"Guardian Egyptian Headline",Georgia,serif;
+	font-weight:400;
+	font-size:2.2em;
+	line-height:1.2em;
+	font-weight:200;
+	text-align:left;
+	color:#EFEFEF;
+	padding:3px 10px 3px 0;
+	clear:both
+/*border-bottom: 1px dotted #005689;*/
+}
 }
 
-.wc-shirts-2014-transition {
-	transition: all 0.3s;
-    -moz-transition: all 0.3s; /* Firefox 4 */
-    -webkit-transition: all 0.3s; /* Safari and Chrome */
-    -o-transition: all 0.3s; /* Opera */
-}
-
-.wc-shirts-2014-transition-quick {
-	transition: all 0.2s;
-    -moz-transition: all 0.2s; /* Firefox 4 */
-    -webkit-transition: all 0.2s; /* Safari and Chrome */
-    -o-transition: all 0.2s; /* Opera */
-}
-
-.shrink {
--ms-transform: scale(0.1,0.1); /* IE 9 */
--webkit-transform: scale(0.1,0.1); /* Chrome, Safari, Opera */
-transform: scale(0.1,0.1);
-opacity:0;
-filter:alpha(opacity=0); /* For IE8 and earlier */
-}
-
-.grow {
--ms-transform: scale(1,1); /* IE 9 */
--webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
-transform: scale(1,1);
-opacity:1;
-filter:alpha(opacity=100); /* For IE8 and earlier */
-} 
-
-/*
-THIS FOR THREE IN ROW -------------------------------------------------------------------------------------------------------------------------
-*/
-
-@media screen and (min-width: 300px) { 
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-		width: 32%;
-		padding-bottom: 32%;
-		margin-right:2%;
-		margin-bottom:2%;
+@media only screen and (max-width : 739px) {
+	#topArea {
+		margin-bottom:48px
 	}
 
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even) {
-		margin-right:2%;
+	#filter-block {
+		position:absolute;
+		top:72px;
+		right:18px;
+		color:#767676
 	}
 
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(3n) {
-		margin-right: auto;
+	#factbox-holder {
+		left:0
 	}
 
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	margin-bottom: -17%;
+	.factbox-holder-col-right,.factbox-holder-col-center-left,.factbox-holder-col-center-right {
+		position:relative;
+		width:96%;
+		margin:0 2% 0 auto;
+		padding:12px 0 24px;
+		height:auto
 	}
 
+	.factbox-holder-col-center-right {
+		border-right:none;
+		border-left:none
+	}
+
+	.large-number {
+		font-family:"Guardian Egyptian Headline",Georgia,serif;
+		font-weight:200;
+		font-size:3.6em;
+		float:left;
+		clear:right;
+		text-align:left;
+		width:98%;
+		padding:3px auto 12px 0;
+		margin:0;
+		color:#bdbdbd
+	}
+
+	.number-caption {
+		font-family:"Guardian Agate Sans",Arial,sans-serif;
+		font-weight:400;
+		font-size:1.5em;
+		line-height:1.2em;
+		font-weight:200;
+		text-align:left;
+		color:#EFEFEF;
+		padding:3px 10px 3px 0;
+		clear:both
+	/*border-bottom: 1px dotted #005689;*/
+	}
 }
 
-
-/*
-THIS FOR FOUR IN ROW -------------------------------------------------------------------------------------------------------------------------
-*/
-@media screen and (min-width: 400px) {
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-		width: 24%;
-		padding-bottom: 24%;
-		margin-right:1.333333333333%;
-		margin-bottom:1.333333333333%;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(3n) {
-		margin-right:1.333333333333%;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(4n) {
-		margin-right: auto;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	margin-bottom: -16%;
-	}
-
-	#wc-shirts-2014-header h3 {
-	color: #333;
-	display: inline;
-}
-
-	
-}
-
-
-/*
-THIS FOR FIVE IN ROW -------------------------------------------------------------------------------------------------------------------------
-*/
-@media screen and (min-width: 550px) {
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-		width: 19%;
-		padding-bottom: 19%;
-		margin-right:1.25%;
-		margin-bottom:1.25%;
-}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(3n) {
-		margin-right:1.25%;
-}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(5n) {
-		margin-right: auto;
-}
-
-#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	margin-bottom: -15%;
-	}
-
-	#wc-shirts-2014-info-main-image-container {
-		width: 45%;
-		padding-left: 0;
-	}
-
-	#wc-shirts-2014-info-text-container {
-	width: 55%;
-	padding-top: 65px;
-	}
-
-
-		#wc-shirts-2014-info-heading {
-	margin: 0 40px 0 40px;
-}
-
-#wc-shirts-2014-info-subheading {
-	
-	margin: 0 40px 0 40px;
-}
-
-	#wc-shirts-2014-info-description {
-	margin: 0 40px 0 40px;
-}
-
-.wc-shirts-2014-info-main-image {
-		margin-right: 0;
-	}
-
-
-}
-
-/*
-THIS FOR EIGHT IN ROW -------------------------------------------------------------------------------------------------------------------------
-*/
-
-@media screen and (min-width: 900px) {
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-		width: 12%;
-		padding-bottom: 12%;
-		margin-right: 0.57%;
-		margin-bottom: 0.57%;
-		font-size:3em;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(1n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(3n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(5n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(7n)
-	 {
-		margin-right: 0.57%;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(8n) {
-		margin-right: auto;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	margin-bottom: -15%;
-	}
-
-	
-
-	#wc-shirts-2014-info-main-image-container {
-		margin-left: 6%;
-		width: 39%;
-	}
-
-	#wc-shirts-2014-info-text-container {
-	width: 55%;
-	}
-
-
-}
-
-/*
-THIS FOR TEN IN ROW -------------------------------------------------------------------------------------------------------------------------
-*/
-
-@media screen and (min-width: 1200px) {
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper {
-		width: 9.5%;
-		padding-bottom: 9.5%;
-		margin-right: 0.55555555555556%;
-		margin-bottom: 0.55555555555556%;
-		font-size:3em;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(even),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(1n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(3n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(5n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(7n),
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(9n)
-	 {
-		margin-right: 0.55555555555556%;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper:nth-of-type(10n) {
-		margin-right: auto;
-	}
-
-	#wc-shirts-2014-grid .wc-shirts-2014-cell-wrapper.wc-shirts-2014-expanded > .wc-shirts-2014-cell::after {
-	margin-bottom: -12.5%;
-	}
-
-	#wc-shirts-2014-info-main-image-container {
-		margin-left: 10.05555555555556%;
-	}
-
-}
-
+/* END RESPOSIVE */
