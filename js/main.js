@@ -1,5 +1,5 @@
 //global vars
-var dataset, data, projection, isZoomed = true, totalCasualties = 0;
+var dataset, data, projection, isZoomed = true, totalCasualties = 0, winW, isMobile, tsunamiLat = 3.19, tsunamiLon = 96, startDate = Date.UTC(2004,11,26,00,59), startCountryCode = "THA";
 
 //IE fixes and iframe init
 var makeUnselectable = function($target) {
@@ -19,12 +19,13 @@ for (var i = 0; i < links.length; i++) {
 		iframeMessenger.navigate(this.href);
 	}, false);
 }
+
 iframeMessenger.enableAutoResize();
 //
-var winW, isMobile;
+
 // from http://www.scienzagiovane.unibo.it/English/tsunami/5-tsunami-2004.html
-var tsunamiLat = 3.19;
-var tsunamiLon = 96;
+
+
 $(window).resize(function() {
 	winW = $(window).width();
 	checkWin();
@@ -69,7 +70,7 @@ function handleResponse(data) {
 			}
 		})
 	}
-	console.log(totalCasualties)
+
 }
 
 function buildView() {
@@ -98,11 +99,11 @@ function populateDropDown() {
 	var htmlStr = "";
 	_.each(dataset, function(item) {
 		var formatCountry = removeSpaces(item.countryiso);
-		if (firstEntry) {
+		if (formatCountry == startCountryCode) {
 			htmlStr += "<option value='" + formatCountry + "'selected>" + item.country +
 				"</option>";
 		}
-		if (!firstEntry) {
+		if (formatCountry != startCountryCode) {
 			htmlStr += "<option value='" + formatCountry + "'>" + item.country +
 				"</option>";
 		}
@@ -138,12 +139,12 @@ function getDimensions() {
 function drawMap() {
 	var factBoxRatio
 	isMobile ? factBoxRatio = 1.2 : factBoxRatio = 0.6;
-	console.log(factBoxRatio);
 	var dimensions = getDimensions();
 	$('.timeline').css("top", (dimensions.height * factBoxRatio) + "px")
 	var factBoxNewTop = (dimensions.height * factBoxRatio) + $('.timeline').outerHeight();
-	$('#factbox-holder').css("top", factBoxNewTop + "px")
+	$('#factbox-holder').css("top", factBoxNewTop + "px");
 	$("#mapView").empty();
+	
 	// var subunits = topojson.feature(this.mapJSON, this.mapJSON.objects.countries);
 	var scale = 100 * dimensions.scale;
 	var translate = [dimensions.width / 2, dimensions.height / 5];
@@ -162,6 +163,7 @@ function drawMap() {
 	//     height = width * 0.45
 	// }
 	$("#mapView").css("height", dimensions.height);
+	$("#tsunamiGraphic").css("width", dimensions.width);;
 	projection = d3.geo.robinson().scale(scale).center(center).translate(
 		translate);
 	svg = d3.select("#mapView").append("svg").attr('width', dimensions.width).attr(
@@ -198,6 +200,12 @@ function drawMap() {
 			"fill-opacity", "1").attr("stroke", "#EFEFEF").attr("stroke-opacity",
 			"0.1").attr("stroke-width", "3px");
 		addListeners();
+
+		_.each(dataset, function(item) {
+			if (item.countryiso == startCountryCode) {
+				setCountryData(item);
+			}
+		})
 		//topojson.object(topology, topology.objects.countries).geometries)
 	});
 	// $(".key-item-color-four").css("background-color", exportColor);  
@@ -253,8 +261,10 @@ function drawAreaGraph(obj) {
 	var waveGraphUnit = 0;
 	var minWave = obj.waveheightminimumm;
 	var maxWave = obj.waveheightmaximumm;
+	var compVar = 0;
 	_.each(dataset, function(item) {
-		if (item.waveheightmaximumm > waveGraphUnit) {
+		if (item.waveheightmaximumm > compVar) {
+			compVar = item.waveheightmaximumm;
 			waveGraphUnit = item.waveheightmaximumm;
 			waveGraphUnit = graphH / waveGraphUnit;
 		}
@@ -307,11 +317,9 @@ function updateBarGraph(obj) {
 	var unitVal = 0;
 	_.each(dataset, function(item) {
 		if (item.valueofdamagesusd != "") {
-			console.log(item.valueofdamagesusd)
 			maxValAll = maxValAll + item.valueofdamagesusd;
 		}
 	})
-	console.log(formatCurrency(maxValAll))
 	if (!isNaN(obj.valueofdamagesusd) && obj.valueofdamagesusd > maxVal) {
 		maxVal = obj.valueofdamagesusd
 	}
@@ -338,9 +346,10 @@ function layoutBarGraphCaptions(caption, captionTitle, bar) {
 			$(captionTitle).css("color", "#EFEFEF")
 		}
 	}
-	// data into view
 
+// data into view
 function setCountryData(obj) {
+		
 		var currencyStr = formatCurrency(obj.valueofdamagesusd)
 		var totalCasualties;
 		if (obj.casualties != "<10") {
@@ -359,10 +368,14 @@ function setCountryData(obj) {
 		updateBarGraph(obj)
 		drawCasualtiesChart(obj);
 		drawAreaGraph(obj);
-		// renderSlider();
-	}
-	//slider code
 
+		timeSlider.val(Math.ceil(obj.madelandafterinitialquakeinhours));
+
+		readSlider();
+		
+	}
+
+//slider code
 function addSliderListeners() {
 	$(".playButton").click(function(e) {
 		autoPlayData(e);
@@ -378,7 +391,7 @@ function renderSlider() {
 			min: 0,
 			max: 12
 		},
-		// Steps of one hour
+		// Steps of one unit
 		step: 1,
 		// Timestamp indicates the handle starting positions.
 		start: 0,
@@ -394,7 +407,13 @@ function readSlider() {
 	var newValue = parseInt(timeSlider.val());
 
 	$("#tsunamiGraphic").css("background", "url('images/background"+newValue+".png')");
-	console.log(newValue)
+	
+	//3600000 = one hour in millisecs
+	var testDate = new Date(startDate+((newValue)*3600000));
+	testDate =  "26 December 2004 "+testDate.getUTCHours()+":"+testDate.getUTCMinutes()+" GMT";
+
+	$('#timeStamp').html(testDate)
+
 }
 
 function autoPlayData(e) {
@@ -436,6 +455,8 @@ function autoPlayData(e) {
 					}
 				}
 			}, 500);
+
+			readSlider();
 		}
 		toNextPoint();
 	}
